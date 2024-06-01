@@ -23,18 +23,7 @@ fclean: clean
 
 re: fclean all
 
-watch:
-	@ make -s lint && make -s; \
-	while true; do \
-		bash .wait_update.sh; \
-		echo ---norminette---; \
-		make lint && \
-			make -s; \
-		sleep 1; \
-	done
-
-lint:
-	@! norminette | grep -v -E ': OK!$$'
+-include .development.mk
 
 show:
 	@printf "NAME  		: $(NAME)\n"

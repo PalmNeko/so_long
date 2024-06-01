@@ -1,7 +1,7 @@
 
-PRE_RESULT="$(find . -type f -not -name "*.o" -not -name "*.d" -not -name "so_long" -exec stat -c=%Y {} \;)"
+PRE_RESULT="$(echo -n "$1 -exec stat -c=%Y {} \\;" | xargs find . -type f)"
 while true; do
-    NOW_RESULT="$(find . -type f -not -name "*.o" -not -name "*.d" -not -name "so_long" -exec stat -c=%Y {} \;)"
+    NOW_RESULT="$(echo -n "$1 -exec stat -c=%Y {} \\;" | xargs find . -type f)"
     if [ "$PRE_RESULT" != "$NOW_RESULT" ]; then
         exit 1
     fi
