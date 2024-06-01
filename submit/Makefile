@@ -24,14 +24,17 @@ fclean: clean
 re: fclean all
 
 watch:
-	@ norminette | grep -v -E ': OK!$$' || make -s; \
+	@ make -s lint && make -s; \
 	while true; do \
 		bash .wait_update.sh; \
 		echo ---norminette---; \
-		norminette | grep -v -E ': OK!$$' || \
+		make lint && \
 			make -s; \
 		sleep 1; \
 	done
+
+lint:
+	@! norminette | grep -v -E ': OK!$$'
 
 show:
 	@printf "NAME  		: $(NAME)\n"
