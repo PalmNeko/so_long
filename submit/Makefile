@@ -23,6 +23,16 @@ fclean: clean
 
 re: fclean all
 
+watch:
+	@ norminette | grep -v -E ': OK!$$' || make -s; \
+	while true; do \
+		bash .wait_update.sh; \
+		echo ---norminette---; \
+		norminette | grep -v -E ': OK!$$' || \
+			make -s; \
+		sleep 1; \
+	done
+
 show:
 	@printf "NAME  		: $(NAME)\n"
 	@printf "CC		: $(CC)\n"
