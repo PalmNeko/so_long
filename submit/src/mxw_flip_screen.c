@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mxw_flip_screen.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/02 21:10:23 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/02 20:04:08 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/02 20:49:59 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
-#include <stdlib.h>
-#include "mxw.h"
-#include "so_long.h"
+#include "mxw_types.h"
 
-int	main(void)
+int	mxw_flip_screen(t_mxw *mxw, t_mxw_window *window)
 {
-	t_sl_this	ls_this;
-	int			result;
+	int result;
 
-	result = mxw_start(sl_setup, sl_loop, &ls_this, &ls_this);
-	if (result != 0)
-		return (1);
-	return (0);
+	result = mlx_put_image_to_window(mxw->mlx, window->mlx_win,
+		window->img_buf->img, 0, 0);
+	return (result);
 }

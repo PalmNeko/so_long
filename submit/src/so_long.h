@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/02 21:10:23 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/02 21:09:50 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <stdlib.h>
-#include "mxw.h"
-#include "so_long.h"
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-int	main(void)
+# include "mxw_types.h"
+
+typedef struct s_sl_this
 {
-	t_sl_this	ls_this;
-	int			result;
+	t_mxw			*mxw;
+	t_mxw_window	*so_long_window;
+}	t_sl_this;
 
-	result = mxw_start(sl_setup, sl_loop, &ls_this, &ls_this);
-	if (result != 0)
-		return (1);
-	return (0);
-}
+
+int	sl_keyboard_handler(int keycode, t_sl_this *vars);
+int	sl_loop(t_mxw *mxw, t_sl_this *loop_args);
+int	sl_setup(t_mxw *mxw, t_sl_this *setup_args);
+
+#endif

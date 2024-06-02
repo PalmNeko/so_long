@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mxw_put_image_to_window.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/02 21:10:23 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/02 19:57:08 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/02 20:07:42 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <stdlib.h>
 #include "mxw.h"
-#include "so_long.h"
 
-int	main(void)
+int mxw_put_image_to_window(t_mxw_window *window,
+	t_mxw_image *img_ptr, int x, int y)
 {
-	t_sl_this	ls_this;
-	int			result;
-
-	result = mxw_start(sl_setup, sl_loop, &ls_this, &ls_this);
-	if (result != 0)
-		return (1);
-	return (0);
+	return (mxw_put_image_to_image(window->img_buf, img_ptr, x, y));
 }

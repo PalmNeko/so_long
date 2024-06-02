@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mxw_pixel_get_from_image.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/02 21:10:23 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/02 20:12:38 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/02 20:15:41 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <stdlib.h>
-#include "mxw.h"
-#include "so_long.h"
+#include <stddef.h>
+#include "mxw_types.h"
 
-int	main(void)
+int	mxw_pixel_get_from_image(t_mxw_image *data, int x, int y)
 {
-	t_sl_this	ls_this;
-	int			result;
+	char	*dst;
+	size_t	index;
 
-	result = mxw_start(sl_setup, sl_loop, &ls_this, &ls_this);
-	if (result != 0)
-		return (1);
-	return (0);
+	index = y * data->line_length + x * (data->bits_per_pixel / 8);
+	dst = data->addr + index;
+	return (*(unsigned int *)dst);
 }

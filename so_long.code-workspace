@@ -4,5 +4,14 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"mlx.h": "c",
+			"stdlib.h": "c",
+			"mxw.h": "c",
+			"mxw_types.h": "c",
+			"so_long.h": "c"
+		},
+		"editor.insertSpaces": false
+	}
 }
