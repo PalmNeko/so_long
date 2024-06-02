@@ -21,5 +21,6 @@ unsigned char	get_t(int trgb);
 unsigned char	get_r(int trgb);
 unsigned char	get_g(int trgb);
 unsigned char	get_b(int trgb);
+void			my_mlx_pixel_put(t_img_infos *data, int x, int y, int color);
 
 #endif

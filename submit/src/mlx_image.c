@@ -12,7 +12,7 @@
 
 #include "mlx_utility_types.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_img_infos *data, int x, int y, int color)
 {
 	char	*dst;
 
