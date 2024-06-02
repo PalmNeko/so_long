@@ -2,6 +2,7 @@
 
 function run_command() {
 	clear
+	echo 'build watching ...'
 	make -s && echo 'success building and output ./so_long'
 }
 

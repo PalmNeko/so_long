@@ -2,6 +2,7 @@
 
 function run_command() {
 	clear
+	echo 'lint watching ...'
 	make lint
 }
 
