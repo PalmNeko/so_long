@@ -1,6 +1,6 @@
 
 NAME        = so_long
-SRCDIR      = ./src
+SRCDIR      = ./
 SRCS        = $(shell find $(SRCDIR) -name "*.c" -type f | xargs)
 OBJS        = $(SRCS:%.c=%.o)
 DEPENDS     = $(OBJS:.o=.d)
