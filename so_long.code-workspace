@@ -1,5 +1,8 @@
 {
 	"folders": [
+		// {
+		// 	"path": "submit"
+		// },
 		{
 			"path": "."
 		}
@@ -12,6 +15,15 @@
 			"mxw_types.h": "c",
 			"so_long.h": "c"
 		},
-		"editor.insertSpaces": false
+		"editor.insertSpaces": false,
+		"explorer.sortOrder": "filesFirst",
+		"explorer.fileNesting.expand": true,
+		"explorer.fileNesting.enabled": true,
+		"explorer.fileNesting.patterns": {
+			"Makefile": ".*",
+			"*": "${basename}_*.h, ${basename}.c, ${basename}_*.c",
+		},
+		"editor.trimAutoWhitespace": false,
+		"files.insertFinalNewline": true
 	}
 }
