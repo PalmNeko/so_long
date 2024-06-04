@@ -20,8 +20,9 @@
 		"explorer.fileNesting.expand": true,
 		"explorer.fileNesting.enabled": true,
 		"explorer.fileNesting.patterns": {
-			"Makefile": ".*",
-			"*": "${basename}_*.h, ${basename}.c, ${basename}_*.c",
+			"Makefile": ".*, *.o, *.d",
+			"*.h": "${capture}_*.h, ${capture}.c, ${capture}_*.c",
+			"lib*.h": "${capture}_*.h, ${capture}.c, ${capture}_*.c",
 		},
 		"editor.trimAutoWhitespace": false,
 		"files.insertFinalNewline": true
