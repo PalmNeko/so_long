@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/03 11:29:55 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/06 15:51:27 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int				mxw_add_event(
  * t_mxw_image
  */
 t_mxw_image		*mxw_new_image(t_mxw *mxw, int width, int height);
+t_mxw_image		*mxw_cut_image(t_mxw_cut_image_param *param);
 t_mxw_image		*mxw_xpm_file_to_image(
 					t_mxw *mxw,
 					char *filename,
@@ -66,6 +67,22 @@ void			mxw_pixel_put_to_image(
 int				mxw_pixel_get_from_image(t_mxw_image *data, int x, int y);
 int				mxw_print_image(t_mxw_image *image);
 
+
+/**
+ * t_mxw_spritesheet
+*/
+t_mxw_spritesheet	*mxw_new_spritesheet(
+						t_mxw_image *spritesheet,
+						int img_width,
+						int img_height);
+int					mxw_destroy_spritesheet(t_mxw_spritesheet *spritesheet);
+t_mxw_image			*mxw_cut_spritesheet(
+						t_mxw *mxw,
+						t_mxw_spritesheet *sheet,
+						int x,
+						int y);
+
+
 /**
  *  MLX Utilities.
  */
@@ -78,5 +95,6 @@ unsigned char	get_t(int trgb);
 unsigned char	get_r(int trgb);
 unsigned char	get_g(int trgb);
 unsigned char	get_b(int trgb);
+void			*mxw_foreach_image(t_mxw_foreach_image_param *param);
 
 #endif

@@ -5,7 +5,7 @@ SRCS        = $(shell find $(SRCDIR) -name "*.c" -type f -not -path "*/libft/*.c
 OBJS        = $(SRCS:%.c=%.o)
 DEPENDS     = $(OBJS:.o=.d)
 LIBFT		= libft
-CFLAGS      = -Wall -Wextra -Werror -MMD -MP
+CFLAGS      = -Wall -Wextra -Werror -MMD -MP -I libft
 LDLIBS      = -lmlx -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)

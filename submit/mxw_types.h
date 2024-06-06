@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/02 20:59:01 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/06 15:14:14 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_mxw				t_mxw;
 typedef struct s_mxw_image			t_mxw_image;
 typedef struct s_mxw_window			t_mxw_window;
 typedef struct s_mxw_window_list	t_mxw_window_list;
+typedef	struct s_mxw_spritesheet	t_mxw_spritesheet;
 
 struct s_mxw {
 	void			*mlx;
@@ -48,6 +49,70 @@ struct s_mxw_window_list {
 	t_mxw_window		*mxw_window;
 	t_mxw_window_list	*next;
 };
+
+/**
+ * @param t_mxw_image sprite sheet image
+ * @param image_width an image width,
+ * @param image_height an image height,
+ * @param image_count image_count,
+*/
+struct s_mxw_spritesheet {
+	t_mxw_image	*sprite_sheet;
+	int			image_width;
+	int			image_height;
+};
+
+/**
+ * struct parameter argument
+*/
+typedef struct s_mxw_cut_image_param {
+	t_mxw			*mxw;
+	t_mxw_image	*image;
+	int			x;
+	int			y;
+	int			width;
+	int			height;
+}	t_mxw_cut_image_param;
+
+/**
+ * @param image iterate image.
+ * @param your_param you want to use param.
+ * @param f your each function
+ * 			int (*f)(void *your_param, t_mxw_fip_param *param)
+ * @param offset_x start pixel point of image.
+ * @param offset_y start pixel point of image.
+ * @param width	loop width
+ * @param height loop height
+ * @param result The data here is passed to each loop and set 
+ * 	as the last return value.
+*/
+typedef struct s_mxw_foreach_image_param {
+	t_mxw_image	*image;
+	void		*your_param;
+	int			(*f)();
+	int			offset_x;
+	int			offset_y;
+	int			width;
+	int			height;
+	void		*result;
+}	t_mxw_foreach_image_param;
+
+/**
+ * @param image_x image point
+ * @param image_y image point
+ * @param index_x index point
+ * @param index_y index point
+ * @param image image data
+ * @param result please store your calculate result.
+*/
+typedef struct s_mxw_fip_param {
+	int			image_x;
+	int			image_y;
+	int			index_x;
+	int			index_y;
+	t_mxw_image	*image;
+	void		*result;
+}	t_mxw_fip_param;
 
 typedef enum e_mxw_event {
 	ON_KEYDOWN = 2,
