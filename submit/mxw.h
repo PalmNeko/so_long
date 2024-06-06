@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 21:44:57 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/06 22:05:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,14 @@ void				mxw_reset_flipbook(t_mxw_flipbook *flipbook);
 int					mxw_flip_flipbbook(t_mxw_flipbook *flipbook, int cnt);
 t_mxw_image			*mxw_get_image_from_flipbook(t_mxw_flipbook *flipbook);
 void				mxw_reset_flipbook(t_mxw_flipbook *flipbook);
+
+/**
+ * t_mxw_body
+*/
+t_mxw_body			*mxw_new_body(
+						t_mxw_image *mxw,
+						t_mxw_image *image,
+						t_mxw_flipbook *flipbook);
 
 /**
  *  MLX Utilities.

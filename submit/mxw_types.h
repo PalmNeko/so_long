@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 21:35:34 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/06 22:04:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_mxw_window			t_mxw_window;
 typedef struct s_mxw_window_list	t_mxw_window_list;
 typedef	struct s_mxw_spritesheet	t_mxw_spritesheet;
 typedef struct s_mxw_flipbook		t_mxw_flipbook;
+typedef struct s_mxw_body			t_mxw_body;
 
 struct s_mxw {
 	void			*mlx;
@@ -67,7 +68,13 @@ struct s_mxw_flipbook {
 	t_mxw_image **flip_book;
 	int			size;
 	int			iter;
-}
+};
+
+struct s_mxw_body {
+	t_mxw_flipbook	*flipbook;
+	int	x;
+	int y;
+};
 
 /**
  * struct parameter argument
