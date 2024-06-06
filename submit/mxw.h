@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mxw.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 15:51:27 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/06 21:44:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void			mxw_pixel_put_to_image(
 					t_mxw_image *data, int x, int y, int color);
 int				mxw_pixel_get_from_image(t_mxw_image *data, int x, int y);
 int				mxw_print_image(t_mxw_image *image);
+t_mxw_image			*mxw_clone_image(t_mxw *mxw, t_mxw_image *image);
 
 
 /**
@@ -82,6 +83,15 @@ t_mxw_image			*mxw_cut_spritesheet(
 						int x,
 						int y);
 
+/**
+ * t_mxw_flipbook
+*/
+t_mxw_flipbook		*mxw_new_flipbook(t_mxw *mxw, t_mxw_image **images, int size);
+void				mxw_destroy_flipbook(t_mxw *mxw, t_mxw_flipbook *flipbook);
+void				mxw_reset_flipbook(t_mxw_flipbook *flipbook);
+int					mxw_flip_flipbbook(t_mxw_flipbook *flipbook, int cnt);
+t_mxw_image			*mxw_get_image_from_flipbook(t_mxw_flipbook *flipbook);
+void				mxw_reset_flipbook(t_mxw_flipbook *flipbook);
 
 /**
  *  MLX Utilities.
