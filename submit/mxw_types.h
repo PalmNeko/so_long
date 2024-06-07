@@ -6,13 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 18:12:23 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 20:00:41 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MXW_TYPES_H
 # define MXW_TYPES_H
 
+# include "libft.h"
 # include <stdbool.h>
 
 typedef struct s_mxw				t_mxw;
@@ -25,7 +26,7 @@ typedef struct s_mxw_body			t_mxw_body;
 
 struct s_mxw {
 	void			*mlx;
-	t_mxw_window	*window_list;
+	t_list			*window_list;
 	int				(*loop)(t_mxw *, void *loop_args);
 	void			*loop_args;
 	bool			is_end;
@@ -47,6 +48,7 @@ struct	s_mxw_window {
 	void		*mlx_win;
 	t_mxw_image	*img_buf;
 	char		*title;
+	bool		has_mlx_win;
 };
 
 struct s_mxw_window_list {

@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mxw_destroy_window.c                               :+:      :+:    :+:   */
+/*   mxw_int_types.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 18:25:25 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 20:09:09 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/07 20:50:21 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/07 21:23:23 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <stdlib.h>
-#include "mxw.h"
-#include "libft.h"
+#ifndef MXW_INT_TYPES_H
+# define MXW_INT_TYPES_H
 
-void	mxw_destroy_window(t_mxw_window *win)
-{
-	ft_lstdel_content(&win->mxw->window_list, win, (void (*)(void *))ft_nop);
-	// mxw_destroy_window(window);
-	mxw_destroy_image(win->img_buf);
-	if (win->has_mlx_win == true)
-		mlx_destroy_window(win->mxw->mlx, win->mlx_win);
-	free(win);
-}
+#endif

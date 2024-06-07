@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 18:15:32 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 21:24:04 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include "mxw.h"
 #include "so_long.h"
 
-int	destroy(t_sl_this *vars)
+int	_destroy(t_sl_this *vars)
 {
 	mxw_set_end(vars->mxw);
-	mxw_destroy_image(vars->so_long_window->img_buf);
+	// mxw_destroy_image(vars->so_long_window->img_buf);
 	return (0);
 }
 
@@ -40,7 +40,7 @@ int	sl_setup(t_mxw *mxw, t_sl_this *setup_args)
 	mxw_put_image_to_window(so_long_window, cut_image, 0, 0);
 	mxw_destroy_image(cut_image);
 	mxw_flip_screen(mxw, so_long_window);
-	mxw_add_event(so_long_window, ON_DESTROY, destroy, setup_args);
+	// mxw_add_event(so_long_window, ON_DESTROY, _destroy, setup_args);
 	mxw_add_event(so_long_window, ON_KEYDOWN, sl_keyboard_handler, setup_args);
 	return (0);
 }
