@@ -80,7 +80,7 @@ struct s_mxw_body {
  * struct parameter argument
 */
 typedef struct s_mxw_cut_image_param {
-	t_mxw			*mxw;
+	t_mxw		*mxw;
 	t_mxw_image	*image;
 	int			x;
 	int			y;
@@ -139,7 +139,6 @@ typedef enum e_mxw_event {
 }	t_mxw_event;
 
 enum {
-	/** number */
 	KEY_0=29,
 	KEY_1=18,
 	KEY_2=19,
@@ -150,7 +149,6 @@ enum {
 	KEY_7=26,
 	KEY_8=28,
 	KEY_9=25,
-	/** alphabet */
 	KEY_A=0,
 	KEY_B=11,
 	KEY_C=8,
@@ -177,8 +175,6 @@ enum {
 	KEY_X=7,
 	KEY_Y=16,
 	KEY_Z=6,
-	/** code -- skip -- */
-	/** special key */
 	KEY_RETURN=36,
 	KEY_TAB=48,
 	KEY_LCTRL=256,
