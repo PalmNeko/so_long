@@ -6,11 +6,11 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:49:50 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 17:08:36 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:45:41 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mxw_types.h"
+#include "mxw_param.h"
 #include "libft.h"
 #include <math.h>
 

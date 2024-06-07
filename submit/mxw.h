@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:33:07 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:45:11 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MXW_H
 
 # include "mxw_types.h"
+# include "mxw_param.h"
 
 # define AUTO_CLOSE_TICK 30000
 
