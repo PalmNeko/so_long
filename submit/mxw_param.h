@@ -6,14 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 22:42:01 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:44:23 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:52:41 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MXW_PARAM_H
 # define MXW_PARAM_H
 
-#include "mxw_types.h"
+# include "mxw_types.h"
 
 typedef struct s_mxw_cut_image_param {
 	t_mxw		*mxw;
@@ -63,6 +63,5 @@ typedef struct s_mxw_fip_param {
 	t_mxw_image	*image;
 	void		*result;
 }	t_mxw_fip_param;
-
 
 #endif
