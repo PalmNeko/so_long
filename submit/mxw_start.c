@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:19:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 23:14:08 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 23:26:40 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include "mxw.h"
+#include "mxw_int.h"
 
 int	mxw_loop(t_mxw *mxw);
 
@@ -49,11 +50,16 @@ int	mxw_start(t_mxw_start_param param)
 int	mxw_loop(t_mxw *mxw)
 {
 	mxw->loop(mxw, mxw->loop_args);
+	if (mxw->is_exit == true)
+	{
+		mxw_destroy_mxw(mxw);
+		exit(0);
+	}
 	if (mxw->is_end == true)
 	{
 		mxw->destroy(mxw->destroy_args);
-		mxw_destroy_mxw(mxw);
-		exit(0);
+		mxw_int_clean_windows(mxw);
+		mxw->is_exit = true;
 	}
 	if (mxw->window_list == NULL)
 	{

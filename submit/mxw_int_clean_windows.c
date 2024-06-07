@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mxw_new_mxw.c                                      :+:      :+:    :+:   */
+/*   mxw_int_clean_windows.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 18:58:31 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 23:18:15 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/07 23:21:32 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/07 23:27:03 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <mlx.h>
-#include "mxw_types.h"
+#include "mxw.h"
 
-t_mxw	*mxw_new_mxw(void)
+void	mxw_int_clean_windows(t_mxw *mxw)
 {
-	t_mxw	*mxw;
-
-	mxw = (t_mxw *)malloc(sizeof(t_mxw));
-	if (mxw == NULL)
-		return (NULL);
-	mxw->mlx = mlx_init();
-	mxw->window_list = NULL;
-	mxw->loop = NULL;
-	mxw->loop_args = NULL;
-	mxw->is_exit = false;
-	mxw->is_end = false;
-	return (mxw);
+	while (mxw->window_list != NULL)
+		mxw_destroy_window(mxw->window_list->content);
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 23:10:04 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 23:19:50 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ typedef struct s_mxw_spritesheet	t_mxw_spritesheet;
 typedef struct s_mxw_flipbook		t_mxw_flipbook;
 typedef struct s_mxw_body			t_mxw_body;
 
+/**
+ * @attention Don't touch is_end and is_exit! you can use mxw_set_end function.
+*/
 struct s_mxw {
 	void			*mlx;
 	t_list			*window_list;
@@ -35,6 +38,7 @@ struct s_mxw {
 	int				(*destroy)(void *destroy_args);
 	void			*destroy_args;
 	bool			is_end;
+	bool			is_exit;
 	long			idle_cnt;
 };
 
