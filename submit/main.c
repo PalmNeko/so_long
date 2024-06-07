@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/07 15:37:39 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:49:54 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	destructor(void)
 	int		status;
 	char	buf[50];
 
+	printf("%s\n", "leak check now...");
 	snprintf(buf, 50, "leaks %d &> leaksout", getpid());
 	status = system(buf);
 	if (status)
