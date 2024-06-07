@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   sl_destroy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 23:11:45 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/07 23:01:41 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/07 23:05:09 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-
-# include "mxw_types.h"
-
-typedef struct s_sl_this
+int	sl_destroy(void *destroy_arg)
 {
-	t_mxw			*mxw;
-	t_mxw_window	*so_long_window;
-}	t_sl_this;
-
-int	sl_keyboard_handler(int keycode, t_sl_this *vars);
-int	sl_loop(t_mxw *mxw, t_sl_this *loop_args);
-int	sl_setup(t_mxw *mxw, t_sl_this *setup_args);
-int	sl_destroy(void *destroy_arg);
-
-#endif
+	(void)destroy_arg;
+	return (0);
+}

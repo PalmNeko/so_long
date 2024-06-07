@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:44:42 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 23:10:04 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ struct s_mxw {
 	t_list			*window_list;
 	int				(*loop)(t_mxw *, void *loop_args);
 	void			*loop_args;
+	int				(*destroy)(void *destroy_args);
+	void			*destroy_args;
 	bool			is_end;
 	long			idle_cnt;
 };

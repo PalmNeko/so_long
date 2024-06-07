@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 22:42:01 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:52:41 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 23:04:47 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,23 @@
 # define MXW_PARAM_H
 
 # include "mxw_types.h"
+
+typedef struct s_mxw_start_param	t_mxw_start_param;
+
+/**
+ * will call bellow:
+ * 	setup(mxw, setup_args);
+ * 	loop(mxw, loop_args);
+ * 	destroy(destroy_args);
+*/
+struct s_mxw_start_param {
+	int		(*setup)();
+	int		(*loop)();
+	int		(*destroy)();
+	void	*setup_args;
+	void	*loop_args;
+	void	*destroy_args;
+};
 
 typedef struct s_mxw_cut_image_param {
 	t_mxw		*mxw;

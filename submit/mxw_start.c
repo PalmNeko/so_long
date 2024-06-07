@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:19:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:38:17 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 23:14:08 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,29 @@
 int	mxw_loop(t_mxw *mxw);
 
 /**
- * mxw_start
- * run setup -> run loop
+ *
+ * @brief run setup -> run loop
+ * @return 1 if occur error in internal init.
+ * 	value which is setup return value if 1 if occur error in setup.
+ * @note destroy function will call when occur error or assign
+ *  true to mxw->is_exit.
  */
-int	mxw_start(
-		int (*setup)(),
-		int (*loop)(),
-		void *setup_args,
-		void *loop_args)
+int	mxw_start(t_mxw_start_param param)
 {
 	t_mxw	*mxw;
 	int		err_no;
 
 	mxw = mxw_new_mxw();
 	if (mxw == NULL)
-		return (1);
-	err_no = ((int (*)(t_mxw *, void *setup_args))setup)(mxw, setup_args);
+		return (param.destroy(param.destroy_args), 1);
+	err_no = ((int (*)(t_mxw *, void *))param.setup)(mxw, param.setup_args);
 	if (err_no != 0)
-		return (err_no);
-	mxw->loop = (int (*)(t_mxw *, void *loop_args))loop;
-	mxw->loop_args = loop_args;
+		return (mxw_destroy_mxw(mxw),
+			param.destroy(param.destroy_args), err_no);
+	mxw->loop = (int (*)(t_mxw *, void *))param.loop;
+	mxw->loop_args = param.loop_args;
+	mxw->destroy = (int (*)(void *))param.destroy;
+	mxw->destroy_args = param.destroy_args;
 	mlx_loop_hook(mxw->mlx, mxw_loop, mxw);
 	mlx_loop(mxw->mlx);
 	return (0);
@@ -48,6 +51,7 @@ int	mxw_loop(t_mxw *mxw)
 	mxw->loop(mxw, mxw->loop_args);
 	if (mxw->is_end == true)
 	{
+		mxw->destroy(mxw->destroy_args);
 		mxw_destroy_mxw(mxw);
 		exit(0);
 	}

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:45:11 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:58:33 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@
 
 # define AUTO_CLOSE_TICK 30000
 
-int					mxw_start(
-						int (*setup)(),
-						int (*loop)(),
-						void *setup_args,
-						void *loop_args);
+int					mxw_start(t_mxw_start_param param);
 void				mxw_set_end(t_mxw *mxw);
 
 /**
