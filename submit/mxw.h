@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mxw.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 22:05:19 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/07 11:49:48 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,8 @@ void				mxw_reset_flipbook(t_mxw_flipbook *flipbook);
 /**
  * t_mxw_body
 */
-t_mxw_body			*mxw_new_body(
-						t_mxw_image *mxw,
-						t_mxw_image *image,
-						t_mxw_flipbook *flipbook);
+t_mxw_body			*mxw_new_body(t_mxw_image *mxw, t_mxw_flipbook *flipbook);
+int					mxw_destroy_body(t_mxw *mxw, t_mxw_body *body);
 
 /**
  *  MLX Utilities.
