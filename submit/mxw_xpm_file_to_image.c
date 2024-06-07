@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:58:15 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/02 19:16:12 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:16:32 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <mlx.h>
 #include "mxw_int.h"
 
-
-t_mxw_image	*mxw_xpm_file_to_image(t_mxw *mxw, char *filename, int *width, int *height)
+t_mxw_image	*mxw_xpm_file_to_image(t_mxw *mxw, char *filename,
+	int *width, int *height)
 {
 	t_mxw_image	*image;
 	void		*mlx_img;

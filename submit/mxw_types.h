@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 15:14:14 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:14:54 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_mxw				t_mxw;
 typedef struct s_mxw_image			t_mxw_image;
 typedef struct s_mxw_window			t_mxw_window;
 typedef struct s_mxw_window_list	t_mxw_window_list;
-typedef	struct s_mxw_spritesheet	t_mxw_spritesheet;
+typedef struct s_mxw_spritesheet	t_mxw_spritesheet;
 
 struct s_mxw {
 	void			*mlx;
@@ -66,7 +66,7 @@ struct s_mxw_spritesheet {
  * struct parameter argument
 */
 typedef struct s_mxw_cut_image_param {
-	t_mxw			*mxw;
+	t_mxw		*mxw;
 	t_mxw_image	*image;
 	int			x;
 	int			y;
@@ -125,7 +125,6 @@ typedef enum e_mxw_event {
 }	t_mxw_event;
 
 enum {
-	/** number */
 	KEY_0=29,
 	KEY_1=18,
 	KEY_2=19,
@@ -136,7 +135,6 @@ enum {
 	KEY_7=26,
 	KEY_8=28,
 	KEY_9=25,
-	/** alphabet */
 	KEY_A=0,
 	KEY_B=11,
 	KEY_C=8,
@@ -163,8 +161,6 @@ enum {
 	KEY_X=7,
 	KEY_Y=16,
 	KEY_Z=6,
-	/** code -- skip -- */
-	/** special key */
 	KEY_RETURN=36,
 	KEY_TAB=48,
 	KEY_LCTRL=256,

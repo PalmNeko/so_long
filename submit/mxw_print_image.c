@@ -6,14 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 20:41:56 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/02 20:45:12 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:17:45 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "mxw_types.h"
 
-int mxw_print_image(t_mxw_image *image)
+int	mxw_print_image(t_mxw_image *image)
 {
 	printf("img: %p\n", image->img);
 	printf("addr: %p\n", image->addr);

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 10:27:10 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/05 10:58:29 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:20:01 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param img_width	an splitted image width.
  * @param img_width	an splitted image width.
  * @return new sprite sheet instance in Memory.
- *         NULL if an error occurred or can't split width of spritesheet 
+ *         NULL if an error occurred or can't split width of spritesheet
  *         with img_width or height of spritesheet with img_height.
  * @attention spritesheet argument is not copied.
 */
@@ -29,9 +29,9 @@ t_mxw_spritesheet	*mxw_new_spritesheet(
 	int img_height)
 {
 	t_mxw_spritesheet	*sprite_sheet;
-	
+
 	if (spritesheet->width % img_width != 0
-			|| spritesheet->height % img_height != 0)
+		|| spritesheet->height % img_height != 0)
 		return (NULL);
 	sprite_sheet = (t_mxw_spritesheet *)malloc(sizeof(t_mxw_spritesheet));
 	if (sprite_sheet == NULL)
