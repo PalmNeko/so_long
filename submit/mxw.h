@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 15:42:02 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:47:50 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void				mxw_set_end(t_mxw *mxw);
 /**
  * t_mxw
  */
-t_mxw				*mxw_init(void);
+t_mxw				*mxw_new_mxw(void);
 void				mxw_destroy_mxw(t_mxw *mxw);
 
 /**

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:19:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/02 19:15:19 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:47:50 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	mxw_start(
 	t_mxw	*mxw;
 	int		err_no;
 
-	mxw = mxw_init();
+	mxw = mxw_new_mxw();
 	if (mxw == NULL)
 		return (1);
 	err_no = ((int (*)(t_mxw *, void *setup_args))setup)(mxw, setup_args);
@@ -49,7 +49,7 @@ int	mxw_loop(t_mxw *mxw)
 	if (mxw->is_end == true)
 	{
 		/**
-		 * 終了処理を作成して終了 
+		 * 終了処理を作成して終了
 		 */
 		mxw_destroy_mxw(mxw);
 		exit(0);

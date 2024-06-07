@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mxw_init.c                                         :+:      :+:    :+:   */
+/*   mxw_new_mxw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,7 +14,7 @@
 #include <mlx.h>
 #include "mxw_types.h"
 
-t_mxw	*mxw_init(void)
+t_mxw	*mxw_new_mxw(void)
 {
 	t_mxw	*mxw;
 
