@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mxw_types.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 22:04:36 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/07 12:16:27 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_mxw				t_mxw;
 typedef struct s_mxw_image			t_mxw_image;
 typedef struct s_mxw_window			t_mxw_window;
 typedef struct s_mxw_window_list	t_mxw_window_list;
-typedef	struct s_mxw_spritesheet	t_mxw_spritesheet;
+typedef struct s_mxw_spritesheet	t_mxw_spritesheet;
 typedef struct s_mxw_flipbook		t_mxw_flipbook;
 typedef struct s_mxw_body			t_mxw_body;
 
@@ -65,15 +65,15 @@ struct s_mxw_spritesheet {
 };
 
 struct s_mxw_flipbook {
-	t_mxw_image **flip_book;
+	t_mxw_image	**flip_book;
 	int			size;
 	int			iter;
 };
 
 struct s_mxw_body {
 	t_mxw_flipbook	*flipbook;
-	int	x;
-	int y;
+	int				x;
+	int				y;
 };
 
 /**
@@ -97,7 +97,7 @@ typedef struct s_mxw_cut_image_param {
  * @param offset_y start pixel point of image.
  * @param width	loop width
  * @param height loop height
- * @param result The data here is passed to each loop and set 
+ * @param result The data here is passed to each loop and set
  * 	as the last return value.
 */
 typedef struct s_mxw_foreach_image_param {

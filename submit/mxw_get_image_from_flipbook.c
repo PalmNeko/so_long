@@ -14,5 +14,5 @@
 
 t_mxw_image	*mxw_get_image_from_flipbook(t_mxw_flipbook *flipbook)
 {
-	return flipbook->flip_book[flipbook->iter];
+	return (flipbook->flip_book[flipbook->iter]);
 }

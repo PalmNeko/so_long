@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 12:12:07 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:18:31 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ int					mxw_flip_flipbbook(t_mxw_flipbook *flipbook, int cnt);
 t_mxw_image			*mxw_get_image_from_flipbook(t_mxw_flipbook *flipbook);
 void				mxw_reset_flipbook(t_mxw_flipbook *flipbook);
 t_mxw_flipbook		*mxw_clone_flipbook(t_mxw *mxw, t_mxw_flipbook *flipbook);
-
 
 /**
  * t_mxw_body

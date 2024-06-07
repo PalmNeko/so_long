@@ -17,7 +17,7 @@ t_mxw_body	*mxw_new_body(t_mxw *mxw, t_mxw_flipbook *flipbook)
 {
 	t_mxw_body	*new_body;
 
-	new_body = (t_mxw_body	*)malloc(sizeof(t_mxw_body));
+	new_body = (t_mxw_body *)malloc(sizeof(t_mxw_body));
 	if (new_body == NULL)
 		return (NULL);
 	new_body->x = 0;
