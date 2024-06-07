@@ -6,12 +6,12 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 10:47:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 15:12:10 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:42:05 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "mxw_types.h"
+#include "mxw.h"
 
 /**
  * @brief free spritesheet instance.
@@ -19,8 +19,9 @@
  * @return not used. always zero.
  * @attention image of spritesheet instance will not be freed.
 */
-int	mxw_destroy_spritesheet(t_mxw_spritesheet *spritesheet)
+int	mxw_destroy_spritesheet(t_mxw *mxw, t_mxw_spritesheet *spritesheet)
 {
+	mxw_destroy_image(mxw, spritesheet->sprite_sheet);
 	free(spritesheet);
 	return (0);
 }

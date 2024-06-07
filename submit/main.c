@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/02 21:10:23 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:37:39 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include <stdlib.h>
 #include "mxw.h"
 #include "so_long.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 
 int	main(void)
 {
@@ -24,4 +27,20 @@ int	main(void)
 	if (result != 0)
 		return (1);
 	return (0);
+}
+
+__attribute__((destructor))
+void	destructor(void)
+{
+	int		status;
+	char	buf[50];
+
+	snprintf(buf, 50, "leaks %d &> leaksout", getpid());
+	status = system(buf);
+	if (status)
+	{
+		write(2, "leak!!!\n", 8);
+		system("cat leaksout >/dev/stderr");
+		exit(1);
+	}
 }

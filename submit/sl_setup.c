@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 16:13:18 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:43:33 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ t_mxw_image	*output_test_image(t_mxw *mxw)
 	textures = mxw_xpm_file_to_image(mxw, "textures", &width, &height);
 	if (textures == NULL)
 		return (NULL);
-	sprite_sheet = mxw_new_spritesheet(textures, 16, 16);
-	if (sprite_sheet == NULL)
-		return (mxw_destroy_image(mxw, textures), NULL);
-	cut_image = mxw_cut_spritesheet(mxw, sprite_sheet, 0, 0);
+	sprite_sheet = mxw_new_spritesheet(mxw, textures, 16, 16);
 	mxw_destroy_image(mxw, textures);
-	mxw_destroy_spritesheet(sprite_sheet);
+	if (sprite_sheet == NULL)
+		return (NULL);
+	cut_image = mxw_cut_spritesheet(mxw, sprite_sheet, 0, 0);
+	mxw_destroy_spritesheet(mxw, sprite_sheet);
 	return (cut_image);
 }

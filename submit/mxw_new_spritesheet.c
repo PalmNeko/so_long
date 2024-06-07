@@ -6,12 +6,12 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 10:27:10 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 16:20:01 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:39:37 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "mxw_types.h"
+#include "mxw.h"
 
 /**
  * @brief create new sprite sheet instance.
@@ -24,6 +24,7 @@
  * @attention spritesheet argument is not copied.
 */
 t_mxw_spritesheet	*mxw_new_spritesheet(
+	t_mxw *mxw,
 	t_mxw_image *spritesheet,
 	int img_width,
 	int img_height)
@@ -36,7 +37,7 @@ t_mxw_spritesheet	*mxw_new_spritesheet(
 	sprite_sheet = (t_mxw_spritesheet *)malloc(sizeof(t_mxw_spritesheet));
 	if (sprite_sheet == NULL)
 		return (NULL);
-	sprite_sheet->sprite_sheet = spritesheet;
+	sprite_sheet->sprite_sheet = mxw_clone_image(mxw, spritesheet);
 	sprite_sheet->image_width = img_width;
 	sprite_sheet->image_height = img_height;
 	return (sprite_sheet);
