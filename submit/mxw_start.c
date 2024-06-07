@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:19:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 15:47:50 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:36:24 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,8 @@ int	mxw_loop(t_mxw *mxw)
 	mxw->loop(mxw, mxw->loop_args);
 	if (mxw->is_end == true)
 	{
-		/**
-		 * 終了処理を作成して終了
-		 */
 		mxw_destroy_mxw(mxw);
 		exit(0);
 	}
-	/* 一定時間ウィンドウが作成されなかったら終了する処理を入れる。*/
 	return (0);
 }

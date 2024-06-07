@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:11:11 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:22:42 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:27:21 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int	_add_window_list(t_mxw *mxw, t_mxw_window *window)
 	return (0);
 }
 
-static int		add_events(t_mxw_window *window)
+static int	add_events(t_mxw_window *window)
 {
 	mlx_hook(window->mlx_win, 17, 0,
 		mxw_int_destroy_handler, window);
