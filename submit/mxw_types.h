@@ -33,6 +33,7 @@ struct s_mxw {
 	int				(*loop)(t_mxw *, void *loop_args);
 	void			*loop_args;
 	bool			is_end;
+	long			idle_cnt;
 };
 
 struct s_mxw_image {

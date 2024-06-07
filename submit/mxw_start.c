@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:19:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:36:24 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:38:17 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,13 @@ int	mxw_loop(t_mxw *mxw)
 		mxw_destroy_mxw(mxw);
 		exit(0);
 	}
+	if (mxw->window_list == NULL)
+	{
+		mxw->idle_cnt += 1;
+		if (mxw->idle_cnt > AUTO_CLOSE_TICK)
+			mxw->is_end = true;
+	}
+	else
+		mxw->idle_cnt = 0;
 	return (0);
 }

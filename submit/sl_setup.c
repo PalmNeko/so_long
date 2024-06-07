@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:22:51 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:39:12 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 int	_destroy(t_sl_this *vars)
 {
-	mxw_set_end(vars->mxw);
+	// mxw_set_end(vars->mxw);
+	(void)vars;
 	return (0);
 }
 
