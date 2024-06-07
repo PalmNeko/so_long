@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 11:49:48 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 12:12:07 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,21 @@ t_mxw_image			*mxw_cut_spritesheet(
 /**
  * t_mxw_flipbook
 */
-t_mxw_flipbook		*mxw_new_flipbook(t_mxw *mxw, t_mxw_image **images, int size);
-void				mxw_destroy_flipbook(t_mxw *mxw, t_mxw_flipbook *flipbook);
+t_mxw_flipbook		*mxw_new_flipbook(
+						t_mxw *mxw, t_mxw_image **images, int size);
+void				mxw_destroy_flipbook(
+						t_mxw *mxw, t_mxw_flipbook *flipbook);
 void				mxw_reset_flipbook(t_mxw_flipbook *flipbook);
 int					mxw_flip_flipbbook(t_mxw_flipbook *flipbook, int cnt);
 t_mxw_image			*mxw_get_image_from_flipbook(t_mxw_flipbook *flipbook);
 void				mxw_reset_flipbook(t_mxw_flipbook *flipbook);
+t_mxw_flipbook		*mxw_clone_flipbook(t_mxw *mxw, t_mxw_flipbook *flipbook);
+
 
 /**
  * t_mxw_body
 */
-t_mxw_body			*mxw_new_body(t_mxw_image *mxw, t_mxw_flipbook *flipbook);
+t_mxw_body			*mxw_new_body(t_mxw *mxw, t_mxw_flipbook *flipbook);
 int					mxw_destroy_body(t_mxw *mxw, t_mxw_body *body);
 
 /**

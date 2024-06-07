@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
 #include "mxw.h"
 
 t_mxw_flipbook	*mxw_new_flipbook(t_mxw *mxw, t_mxw_image **images, int size)
@@ -18,7 +18,7 @@ t_mxw_flipbook	*mxw_new_flipbook(t_mxw *mxw, t_mxw_image **images, int size)
 	t_mxw_image		**cloned_images;
 	t_mxw_flipbook	*flip_book;
 	int			index;
-	
+
 	flip_book = (t_mxw_flipbook *)malloc(sizeof(t_mxw_flipbook *) * size);
 	if (flip_book == NULL)
 		return (NULL);
@@ -45,5 +45,5 @@ t_mxw_flipbook	*mxw_new_flipbook(t_mxw *mxw, t_mxw_image **images, int size)
 	flip_book->flip_book = cloned_images;
 	flip_book->size	= size;
 	flip_book->iter = 0;
-	return (flip_book)
+	return (flip_book);
 }

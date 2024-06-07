@@ -6,7 +6,8 @@ OBJS        = $(SRCS:%.c=%.o)
 DEPENDS     = $(OBJS:.o=.d)
 LIBFT		= libft
 CFLAGS      = -Wall -Wextra -Werror -MMD -MP -I libft
-LDLIBS      = -lmlx -lmlx -framework OpenGL -framework AppKit
+LOADLIBES	= -L libft
+LDLIBS      = -lmlx -lmlx -lft -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
