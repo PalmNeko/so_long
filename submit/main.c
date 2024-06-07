@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/07 23:11:50 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 23:30:17 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void)
 		.destroy_args = &ls_this};
 	result = mxw_start(mxw_start_param);
 	if (result != 0)
-		return (1);
+		return (0);
 	return (0);
 }
 

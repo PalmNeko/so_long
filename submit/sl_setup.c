@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:52:48 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 23:51:14 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	sl_setup(t_mxw *mxw, t_sl_this *setup_args)
 	t_mxw_image			*cut_image;
 
 	setup_args->mxw = mxw;
-	so_long_window = mxw_new_window(mxw, 1920, 1080, "Hello world!");
-	if (so_long_window == NULL)
-		return (-1);
-	setup_args->so_long_window = so_long_window;
 	cut_image = output_test_image(mxw);
 	if (cut_image == NULL)
-		return (mxw_destroy_window(so_long_window), -1);
+		return (-1);
+	so_long_window = mxw_new_window(mxw, 1920, 1080, "Hello world!");
+	if (so_long_window == NULL)
+		return (mxw_destroy_image(cut_image), -1);
+	setup_args->so_long_window = so_long_window;
 	mxw_put_image_to_window(so_long_window, cut_image, 0, 0);
 	mxw_destroy_image(cut_image);
 	mxw_flip_screen(mxw, so_long_window);

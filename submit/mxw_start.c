@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:19:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 23:26:40 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 23:48:45 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int	mxw_start(t_mxw_start_param param)
 		return (param.destroy(param.destroy_args), 1);
 	err_no = ((int (*)(t_mxw *, void *))param.setup)(mxw, param.setup_args);
 	if (err_no != 0)
-		return (mxw_destroy_mxw(mxw),
-			param.destroy(param.destroy_args), err_no);
+		mxw_set_end(mxw);
 	mxw->loop = (int (*)(t_mxw *, void *))param.loop;
 	mxw->loop_args = param.loop_args;
 	mxw->destroy = (int (*)(void *))param.destroy;
