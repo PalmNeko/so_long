@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:11:11 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/02 17:45:01 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:18:21 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_mxw_window	*mxw_new_window(t_mxw *mxw, int size_x, int size_y, char *title)
 	window = (t_mxw_window *)malloc(sizeof(t_mxw_window));
 	if (window == NULL)
 		return (NULL);
+	window->mxw = mxw;
 	window->mlx_win = mlx_new_window(mxw->mlx, size_x, size_y, title);
 	if (window->mlx_win == NULL)
 		return (free(window), NULL);

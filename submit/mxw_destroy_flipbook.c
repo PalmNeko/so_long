@@ -13,14 +13,14 @@
 #include <stdlib.h>
 #include "mxw.h"
 
-void	mxw_destroy_flipbook(t_mxw *mxw, t_mxw_flipbook *flipbook)
+void	mxw_destroy_flipbook(t_mxw_flipbook *flipbook)
 {
 	int	index;
 
 	index = 0;
 	while (index < flipbook->size)
 	{
-		mxw_destroy_image(mxw, flipbook->flip_book[index]);
+		mxw_destroy_image(flipbook->flip_book[index]);
 		index++;
 	}
 	free(flipbook);

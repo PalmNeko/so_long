@@ -53,10 +53,10 @@ static t_mxw_image	**__clone_images(
 		{
 			while (index > 0)
 			{
-				mxw_destroy_image(mxw, cloned_images[index]);
+				mxw_destroy_image(cloned_images[index]);
 				index--;
 			}
-			mxw_destroy_image(mxw, cloned_images[index]);
+			mxw_destroy_image(cloned_images[index]);
 			return (NULL);
 		}
 		index++;

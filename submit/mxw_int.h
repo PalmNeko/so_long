@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:59:02 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 16:20:58 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:23:46 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include "mxw_types.h"
 
-t_mxw_image	*mxw_generate_from_mlx_image(void *mlx_img, int width, int height);
+t_mxw_image	*mxw_generate_from_mlx_image(
+				t_mxw *mxw, void *mlx_img, int width, int height);
 void		mxw_destroy_mxw(t_mxw *mxw);
 
 #endif

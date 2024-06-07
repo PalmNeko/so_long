@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 12:16:27 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:12:23 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ struct s_mxw {
 };
 
 struct s_mxw_image {
+	t_mxw	*mxw;
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -42,6 +43,7 @@ struct s_mxw_image {
 };
 
 struct	s_mxw_window {
+	t_mxw		*mxw;
 	void		*mlx_win;
 	t_mxw_image	*img_buf;
 	char		*title;

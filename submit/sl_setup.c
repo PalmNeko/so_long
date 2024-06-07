@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 15:43:33 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:15:32 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int	destroy(t_sl_this *vars)
 {
 	mxw_set_end(vars->mxw);
-	mxw_destroy_image(vars->mxw, vars->so_long_window->img_buf);
+	mxw_destroy_image(vars->so_long_window->img_buf);
 	return (0);
 }
 
@@ -36,9 +36,9 @@ int	sl_setup(t_mxw *mxw, t_sl_this *setup_args)
 	setup_args->so_long_window = so_long_window;
 	cut_image = output_test_image(mxw);
 	if (cut_image == NULL)
-		return (mxw_destroy_window(mxw, so_long_window), -1);
+		return (mxw_destroy_window(so_long_window), -1);
 	mxw_put_image_to_window(so_long_window, cut_image, 0, 0);
-	mxw_destroy_image(mxw, cut_image);
+	mxw_destroy_image(cut_image);
 	mxw_flip_screen(mxw, so_long_window);
 	mxw_add_event(so_long_window, ON_DESTROY, destroy, setup_args);
 	mxw_add_event(so_long_window, ON_KEYDOWN, sl_keyboard_handler, setup_args);
@@ -57,10 +57,10 @@ t_mxw_image	*output_test_image(t_mxw *mxw)
 	if (textures == NULL)
 		return (NULL);
 	sprite_sheet = mxw_new_spritesheet(mxw, textures, 16, 16);
-	mxw_destroy_image(mxw, textures);
+	mxw_destroy_image(textures);
 	if (sprite_sheet == NULL)
 		return (NULL);
 	cut_image = mxw_cut_spritesheet(mxw, sprite_sheet, 0, 0);
-	mxw_destroy_spritesheet(mxw, sprite_sheet);
+	mxw_destroy_spritesheet(sprite_sheet);
 	return (cut_image);
 }

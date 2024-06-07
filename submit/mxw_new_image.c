@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:19:20 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/02 18:00:16 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:23:57 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ t_mxw_image	*mxw_new_image(t_mxw *mxw, int width, int height)
 	mlx_img = mlx_new_image(mxw->mlx, width, height);
 	if (mlx_img == NULL)
 		return (NULL);
-	image = mxw_generate_from_mlx_image(mlx_img, width, height);
+	image = mxw_generate_from_mlx_image(mxw, mlx_img, width, height);
 	if (image == NULL)
 		return (mlx_destroy_image(mxw->mlx, mlx_img), NULL);
+	image->mxw = mxw;
 	return (image);
 }

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 15:47:50 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:12:01 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void				mxw_destroy_mxw(t_mxw *mxw);
  */
 t_mxw_window		*mxw_new_window(
 						t_mxw *mxw, int size_x, int size_y, char *title);
-int					mxw_destroy_window(t_mxw *mxw, t_mxw_window *win);
+int					mxw_destroy_window(t_mxw_window *win);
 int					mxw_put_image_to_window(
 						t_mxw_window *window,
 						t_mxw_image *img_ptr,
@@ -56,7 +56,7 @@ t_mxw_image			*mxw_xpm_file_to_image(
 						char *filename,
 						int *width,
 						int *height);
-int					mxw_destroy_image(t_mxw *mxw, t_mxw_image *img);
+int					mxw_destroy_image(t_mxw_image *img);
 int					mxw_put_image_to_image(
 						t_mxw_image *canvas,
 						t_mxw_image *image,
@@ -76,8 +76,7 @@ t_mxw_spritesheet	*mxw_new_spritesheet(
 						t_mxw_image *spritesheet,
 						int img_width,
 						int img_height);
-int					mxw_destroy_spritesheet(
-						t_mxw *mxw, t_mxw_spritesheet *spritesheet);
+int					mxw_destroy_spritesheet(t_mxw_spritesheet *spritesheet);
 t_mxw_image			*mxw_cut_spritesheet(
 						t_mxw *mxw,
 						t_mxw_spritesheet *sheet,
@@ -89,8 +88,7 @@ t_mxw_image			*mxw_cut_spritesheet(
 */
 t_mxw_flipbook		*mxw_new_flipbook(
 						t_mxw *mxw, t_mxw_image **images, int size);
-void				mxw_destroy_flipbook(
-						t_mxw *mxw, t_mxw_flipbook *flipbook);
+void				mxw_destroy_flipbook(t_mxw_flipbook *flipbook);
 void				mxw_reset_flipbook(t_mxw_flipbook *flipbook);
 int					mxw_flip_flipbbook(t_mxw_flipbook *flipbook, int cnt);
 t_mxw_image			*mxw_get_image_from_flipbook(t_mxw_flipbook *flipbook);
@@ -101,7 +99,7 @@ t_mxw_flipbook		*mxw_clone_flipbook(t_mxw *mxw, t_mxw_flipbook *flipbook);
  * t_mxw_body
 */
 t_mxw_body			*mxw_new_body(t_mxw *mxw, t_mxw_flipbook *flipbook);
-int					mxw_destroy_body(t_mxw *mxw, t_mxw_body *body);
+int					mxw_destroy_body(t_mxw_body *body);
 
 /**
  *  MLX Utilities.

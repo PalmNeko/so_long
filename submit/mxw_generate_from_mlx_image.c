@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:59:58 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/02 19:11:00 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:35:22 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include <mlx.h>
 #include "mxw_types.h"
 
-t_mxw_image	*mxw_generate_from_mlx_image(void *mlx_img, int width, int height)
+t_mxw_image	*mxw_generate_from_mlx_image(
+		t_mxw *mxw, void *mlx_img, int width, int height)
 {
 	t_mxw_image	*image;
 
@@ -28,5 +29,6 @@ t_mxw_image	*mxw_generate_from_mlx_image(void *mlx_img, int width, int height)
 		return (free(image), NULL);
 	image->width = width;
 	image->height = height;
+	image->mxw = mxw;
 	return (image);
 }
