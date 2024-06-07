@@ -6,17 +6,19 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:11:11 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 20:07:03 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:22:42 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include <stdlib.h>
 #include "mxw.h"
+#include "mxw_int.h"
 #include "libft.h"
 
 t_mxw_window	*_mxw_new_window(t_mxw *mxw, int width, int height);
 static int		_add_window_list(t_mxw *mxw, t_mxw_window *window);
+static int		add_events(t_mxw_window *window);
 static int		on_destroy(t_mxw_window *window);
 
 t_mxw_window	*mxw_new_window(t_mxw *mxw, int size_x, int size_y, char *title)
@@ -34,6 +36,10 @@ t_mxw_window	*mxw_new_window(t_mxw *mxw, int size_x, int size_y, char *title)
 	window->mxw = mxw;
 	window->title = title;
 	window->has_mlx_win = true;
+	ft_memset(window->event_handlers, 0,
+		sizeof(t_mxw_event_handler) * MAX_EVENT_CNT * MXW_EVENT_HANDLER);
+	ft_memset(window->event_handlers_cnt, 0, sizeof(int) * MAX_EVENT_CNT);
+	add_events(window);
 	mxw_add_event(window, ON_DESTROY, on_destroy, window);
 	if (_add_window_list(mxw, window) == -1)
 		return (mxw_destroy_window(window), NULL);
@@ -64,9 +70,27 @@ static int	_add_window_list(t_mxw *mxw, t_mxw_window *window)
 	return (0);
 }
 
+static int		add_events(t_mxw_window *window)
+{
+	mlx_hook(window->mlx_win, 17, 0,
+		mxw_int_destroy_handler, window);
+	mlx_hook(window->mlx_win, 12, 0,
+		mxw_int_expose_handler, window);
+	mlx_hook(window->mlx_win, 2, 0,
+		mxw_int_keydown_handler, window);
+	mlx_hook(window->mlx_win, 3, 0,
+		mxw_int_keyup_handler, window);
+	mlx_hook(window->mlx_win, 4, 0,
+		mxw_int_mousedown_handler, window);
+	mlx_hook(window->mlx_win, 5, 0,
+		mxw_int_mouseup_handler, window);
+	mlx_hook(window->mlx_win, 6, 0,
+		mxw_int_mousemove_handler, window);
+	return (0);
+}
+
 static int	on_destroy(t_mxw_window *window)
 {
-	mxw_set_end(window->mxw);
 	window->has_mlx_win = false;
 	mxw_destroy_window(window);
 	return (0);
