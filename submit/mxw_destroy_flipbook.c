@@ -17,6 +17,8 @@ void	mxw_destroy_flipbook(t_mxw_flipbook *flipbook)
 {
 	int	index;
 
+	if (flipbook == NULL)
+		return ;
 	index = 0;
 	while (index < flipbook->size)
 	{

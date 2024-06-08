@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 10:47:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 18:52:32 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/08 13:01:11 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 */
 void	mxw_destroy_spritesheet(t_mxw_spritesheet *spritesheet)
 {
+	if (spritesheet == NULL)
+		return ;
 	mxw_destroy_image(spritesheet->sprite_sheet);
 	free(spritesheet);
 }
