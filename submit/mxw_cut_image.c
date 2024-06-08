@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 11:54:58 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/06 17:17:14 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/08 14:58:53 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_mxw_image	*mxw_cut_image(t_mxw_cut_image_param *param)
 	t_mxw_image	*cut_image;
 
 	cut_image = mxw_new_image(param->mxw,
-			param->image->width, param->image->height);
+			param->width, param->height);
 	if (cut_image == NULL)
 		return (NULL);
 	mxw_foreach_image((t_mxw_foreach_image_param []){{

@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_keyboard_handler.c                              :+:      :+:    :+:   */
+/*   sl_load.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 18:15:04 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/08 14:35:44 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/08 13:20:43 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "mxw.h"
-#include <stdio.h>
 
-int	sl_keyboard_handler(int keycode, t_sl_this *vars)
+int	sl_load(t_sl_this *sl)
 {
-	if (keycode == KEY_ESC)
-		mxw_set_end(vars->mxw);
-	if (keycode == KEY_RETURN)
-	{
-		mxw_flip_flipbbook(*vars->player->now_flipbook, 1);
-		mxw_put_image_to_window(vars->so_long_window,
-			mxw_get_image_from_flipbook(*vars->player->now_flipbook), 0, 0);
-		mxw_flip_screen(vars->mxw, vars->so_long_window);
-	}
-	return (0);
+	return (sl_load_assets(sl->mxw, sl));
 }

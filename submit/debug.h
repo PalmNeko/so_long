@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_destroy.c                                       :+:      :+:    :+:   */
+/*   debug.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 23:01:41 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/08 17:34:13 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/08 17:05:42 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/08 17:09:27 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "so_long.h"
+#ifdef DEBUG
+# ifndef DEBUG_H
+#  define DEBUG_H
 
-int	sl_destroy(t_sl_this *destroy_arg)
-{
-	sl_unload(destroy_arg);
-	printf("%s\n", "destroy");
-	return (0);
-}
+#  include <stdlib.h>
+
+#  define malloc(size) debug_malloc(size, __FILE__, __LINE__)
+
+void	*debug_malloc(size_t size, char *filename, int line);
+
+# endif
+#endif

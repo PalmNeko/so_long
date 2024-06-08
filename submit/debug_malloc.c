@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_keyboard_handler.c                              :+:      :+:    :+:   */
+/*   debug_malloc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 18:15:04 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/08 14:35:44 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/08 17:03:44 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/08 17:10:43 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include "mxw.h"
+#include <stdlib.h>
 #include <stdio.h>
 
-int	sl_keyboard_handler(int keycode, t_sl_this *vars)
+void	*debug_malloc(size_t size, char *filename, int line)
 {
-	if (keycode == KEY_ESC)
-		mxw_set_end(vars->mxw);
-	if (keycode == KEY_RETURN)
-	{
-		mxw_flip_flipbbook(*vars->player->now_flipbook, 1);
-		mxw_put_image_to_window(vars->so_long_window,
-			mxw_get_image_from_flipbook(*vars->player->now_flipbook), 0, 0);
-		mxw_flip_screen(vars->mxw, vars->so_long_window);
-	}
-	return (0);
+	void	*return_ptr;
+
+	return_ptr = malloc(size);
+	fprintf(stderr, "%p - %s:%d size:%zd\n", return_ptr, filename, line, size);
+	return (return_ptr);
 }

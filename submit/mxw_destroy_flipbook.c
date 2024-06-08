@@ -25,6 +25,7 @@ void	mxw_destroy_flipbook(t_mxw_flipbook *flipbook)
 		mxw_destroy_image(flipbook->flip_book[index]);
 		index++;
 	}
+	free(flipbook->flip_book);
 	free(flipbook);
 	return ;
 }

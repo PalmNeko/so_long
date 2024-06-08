@@ -6,13 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 23:23:02 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/08 17:09:04 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MXW_H
 # define MXW_H
-
+# define DEBUG
+# include "debug.h"
 # include "mxw_types.h"
 # include "mxw_param.h"
 

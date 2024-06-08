@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_keyboard_handler.c                              :+:      :+:    :+:   */
+/*   sl_unload_assets.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 18:15:04 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/08 14:35:44 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/08 14:26:41 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/08 14:37:23 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "mxw.h"
-#include <stdio.h>
 
-int	sl_keyboard_handler(int keycode, t_sl_this *vars)
+void	sl_unload_assets(t_sl_this *sl)
 {
-	if (keycode == KEY_ESC)
-		mxw_set_end(vars->mxw);
-	if (keycode == KEY_RETURN)
-	{
-		mxw_flip_flipbbook(*vars->player->now_flipbook, 1);
-		mxw_put_image_to_window(vars->so_long_window,
-			mxw_get_image_from_flipbook(*vars->player->now_flipbook), 0, 0);
-		mxw_flip_screen(vars->mxw, vars->so_long_window);
-	}
-	return (0);
+	sl_destroy_player(sl->player);
+	mxw_destroy_spritesheet(sl->sprite_sheet);
 }

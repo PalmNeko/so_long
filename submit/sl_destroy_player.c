@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_keyboard_handler.c                              :+:      :+:    :+:   */
+/*   sl_destroy_player.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 18:15:04 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/08 14:35:44 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/08 13:10:56 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/08 13:13:44 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include <stdlib.h>
 #include "mxw.h"
-#include <stdio.h>
+#include "so_long.h"
 
-int	sl_keyboard_handler(int keycode, t_sl_this *vars)
+void	sl_destroy_player(t_sl_player *player)
 {
-	if (keycode == KEY_ESC)
-		mxw_set_end(vars->mxw);
-	if (keycode == KEY_RETURN)
-	{
-		mxw_flip_flipbbook(*vars->player->now_flipbook, 1);
-		mxw_put_image_to_window(vars->so_long_window,
-			mxw_get_image_from_flipbook(*vars->player->now_flipbook), 0, 0);
-		mxw_flip_screen(vars->mxw, vars->so_long_window);
-	}
-	return (0);
+	mxw_destroy_flipbook(player->left_flipbook);
+	mxw_destroy_flipbook(player->up_flipbook);
+	mxw_destroy_flipbook(player->right_flipbook);
+	mxw_destroy_flipbook(player->down_flipbook);
+	free(player);
 }
