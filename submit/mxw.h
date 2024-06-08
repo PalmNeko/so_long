@@ -50,11 +50,7 @@ int					mxw_add_event(
  */
 t_mxw_image			*mxw_new_image(t_mxw *mxw, int width, int height);
 t_mxw_image			*mxw_cut_image(t_mxw_cut_image_param *param);
-t_mxw_image			*mxw_xpm_file_to_image(
-						t_mxw *mxw,
-						char *filename,
-						int *width,
-						int *height);
+t_mxw_image			*mxw_xpm_file_to_image(t_mxw *mxw, char *filename);
 void				mxw_destroy_image(t_mxw_image *img);
 int					mxw_put_image_to_image(
 						t_mxw_image *canvas,
