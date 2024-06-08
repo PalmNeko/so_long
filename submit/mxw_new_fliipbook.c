@@ -20,15 +20,10 @@ t_mxw_flipbook	*mxw_new_flipbook(t_mxw *mxw, t_mxw_image **images, int size)
 {
 	t_mxw_image		**cloned_images;
 	t_mxw_flipbook	*flip_book;
-	int				index;
 
 	flip_book = (t_mxw_flipbook *)malloc(sizeof(t_mxw_flipbook *) * size);
 	if (flip_book == NULL)
 		return (NULL);
-	cloned_images = (t_mxw_image **)malloc(sizeof(t_mxw_image *) * size);
-	if (cloned_images == NULL)
-		return (NULL);
-	index = 0;
 	cloned_images = __clone_images(mxw, images, size);
 	flip_book->flip_book = cloned_images;
 	flip_book->size = size;
