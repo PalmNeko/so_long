@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_load.c                                          :+:      :+:    :+:   */
+/*   sl_init_sl_this.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:30:36 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/09 16:05:53 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/09 16:09:55 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sl.h"
+#include <stddef.h>
+#include "sl_types.h"
+#include "libft.h"
 
-int	sl_load(t_sl_this *sl)
+void	sl_init_sl_this(t_sl_this *this)
 {
-	if (sl_load_map(sl) != 0)
-		return (-1);
-	return (sl_load_assets(sl->mxw, sl));
+	ft_bzero(this, sizeof(t_sl_this));
 }

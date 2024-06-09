@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/07 23:30:17 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:29:04 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(void)
 	int					result;
 	t_mxw_start_param	mxw_start_param;
 
+	sl_init_sl_this(&ls_this);
 	mxw_start_param = (t_mxw_start_param){
 		.setup = sl_setup,
 		.loop = sl_loop,

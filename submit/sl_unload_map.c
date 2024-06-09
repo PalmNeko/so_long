@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_load.c                                          :+:      :+:    :+:   */
+/*   sl_unload_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:30:36 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/09 16:26:28 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/09 16:27:03 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sl.h"
 
-int	sl_load(t_sl_this *sl)
+void sl_unload_map(t_sl_this *this)
 {
-	if (sl_load_map(sl) != 0)
-		return (-1);
-	return (sl_load_assets(sl->mxw, sl));
+	sl_destroy_map(this->map);
 }

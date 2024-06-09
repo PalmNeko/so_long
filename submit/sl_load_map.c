@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_load.c                                          :+:      :+:    :+:   */
+/*   sl_load_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:30:36 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/09 16:23:51 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/09 16:25:24 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sl.h"
 
-int	sl_load(t_sl_this *sl)
+int	sl_load_map(t_sl_this *this)
 {
-	if (sl_load_map(sl) != 0)
+	this->map = sl_ber_file_to_map(this->ber_filename);
+	if (this->map == NULL)
 		return (-1);
-	return (sl_load_assets(sl->mxw, sl));
 }
