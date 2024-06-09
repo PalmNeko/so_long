@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "so_long.h"
+#include "sl.h"
 
 int	sl_destroy(t_sl_this *destroy_arg)
 {

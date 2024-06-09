@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "mxw_types.h"
-#include "so_long.h"
+#include "sl.h"
 
 int	sl_loop(t_mxw *mxw, t_sl_this *loop_args)
 {

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "mxw.h"
-#include "so_long.h"
+#include "sl.h"
 
 static t_mxw_spritesheet	*sl_load_sprite_sheet(t_mxw *mxw);
 

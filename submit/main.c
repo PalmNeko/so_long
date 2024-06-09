@@ -13,7 +13,7 @@
 #include <mlx.h>
 #include <stdlib.h>
 #include "mxw.h"
-#include "so_long.h"
+#include "sl.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>

@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 #include "mxw.h"
-#include "so_long.h"
+#include "sl.h"
 #include "libft.h"
 
 t_sl_player	*sl_new_player(t_sl_this *sl)

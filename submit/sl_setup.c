@@ -13,7 +13,7 @@
 #include <mlx.h>
 #include <stdio.h>
 #include "mxw.h"
-#include "so_long.h"
+#include "sl.h"
 
 int	_destroy(t_sl_this *vars)
 {

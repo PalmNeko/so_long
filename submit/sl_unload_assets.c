@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "sl.h"
 #include "mxw.h"
 
 void	sl_unload_assets(t_sl_this *sl)

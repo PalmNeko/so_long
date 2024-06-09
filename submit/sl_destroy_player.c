@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 #include "mxw.h"
-#include "so_long.h"
+#include "sl.h"
 
 void	sl_destroy_player(t_sl_player *player)
 {
