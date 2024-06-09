@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:11:11 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:27:21 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:14:54 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ t_mxw_window	*mxw_new_window(t_mxw *mxw, int size_x, int size_y, char *title)
 	window->mxw = mxw;
 	window->title = title;
 	window->has_mlx_win = true;
+	window->width = size_x;
+	window->height = size_y;
 	ft_memset(window->event_handlers, 0,
 		sizeof(t_mxw_event_handler) * MAX_EVENT_CNT * MXW_EVENT_HANDLER);
 	ft_memset(window->event_handlers_cnt, 0, sizeof(int) * MAX_EVENT_CNT);

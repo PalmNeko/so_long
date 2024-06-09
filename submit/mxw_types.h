@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 23:19:50 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:14:26 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ struct	s_mxw_window {
 	void				*mlx_win;
 	t_mxw_image			*img_buf;
 	char				*title;
+	int					width;
+	int					height;
 	t_mxw_event_handler	event_handlers[MAX_EVENT_CNT][MXW_EVENT_HANDLER];
 	int					event_handlers_cnt[MAX_EVENT_CNT];
 	bool				has_mlx_win;
