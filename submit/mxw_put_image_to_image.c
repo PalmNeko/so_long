@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 20:09:32 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 15:28:10 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 17:47:41 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	__copy_pixel(t_mxw_image *put_image, t_mxw_fip_param *args)
 {
 	int	color;
 
-	color = mxw_pixel_get_from_image(put_image, args->image_x, args->image_y);
-	mxw_pixel_put_to_image(args->image, args->index_x, args->index_y, color);
+	color = mxw_pixel_get_from_image(put_image, args->index_x, args->index_y);
+	mxw_pixel_put_to_image(args->image, args->image_x, args->image_y, color);
 	return (0);
 }
