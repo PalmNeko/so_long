@@ -6,18 +6,21 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 17:07:10 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 18:43:51 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SL_H
 # define SL_H
 
+# include "sl_conf.h"
 # include "mxw.h"
 
 typedef struct s_sl_player		t_sl_player;
 typedef enum e_sl_block_type	t_sl_block_type;
 typedef struct s_sl_map		t_sl_map;
+typedef enum s_sl_background	t_sl_background;
+
 
 struct s_sl_map {
 	t_sl_block_type	**fields;
@@ -35,8 +38,7 @@ typedef struct s_sl_this
 	t_mxw				*mxw;
 	t_mxw_window		*so_long_window;
 	t_mxw_spritesheet	*sprite_sheet;
-	t_mxw_image			*wall;
-	t_mxw_image			*road;
+	t_mxw_image			*bg_block[MAX_BG_BLOCK];
 	t_mxw_image			*background;
 	int					block_width;
 	int					block_height;
@@ -63,6 +65,14 @@ struct s_sl_player
 	int					x;
 	int					y;
 	enum e_direction	direction;
+};
+
+enum s_sl_background
+{
+	BG_NONE,
+	BG_WALL,
+	BG_GRASS,
+	BG_ROAD,
 };
 
 #endif

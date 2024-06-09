@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 17:24:03 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 18:44:39 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,14 @@ int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
 	sl->player = sl_new_player(sl);
 	if (sl->player == NULL)
 		return (-1);
-	sl->wall = mxw_cut_spritesheet(mxw, sl->sprite_sheet, 0, 14);
-	if (sl->wall == NULL)
+	sl->bg_block[BG_WALL] = mxw_cut_spritesheet(mxw, sl->sprite_sheet, 0, 14);
+	if (sl->bg_block[BG_WALL] == NULL)
 		return (-1);
-	sl->road = mxw_cut_spritesheet(mxw, sl->sprite_sheet, 9, 16);
-	if (sl->wall == NULL)
+	sl->bg_block[BG_ROAD] = mxw_cut_spritesheet(mxw, sl->sprite_sheet, 9, 16);
+	if (sl->bg_block[BG_ROAD] == NULL)
+		return (-1);
+	sl->bg_block[BG_GRASS] = mxw_cut_spritesheet(mxw, sl->sprite_sheet, 10, 15);
+	if (sl->bg_block[BG_GRASS] == NULL)
 		return (-1);
 	return (0);
 }
@@ -86,7 +89,7 @@ static int	put_on_block(t_sl_this *sl, t_mxw_fip_param *param)
 {
 	int		map_x;
 	int		map_y;
-	t_mxw_image	*block_image;
+	t_sl_background bg_block_type;
 
 	if (param->image_x % sl->block_width != 0
 		|| param->image_y % sl->block_height != 0)
@@ -95,13 +98,15 @@ static int	put_on_block(t_sl_this *sl, t_mxw_fip_param *param)
 	map_y = param->image_y / sl->block_height;
 	if (map_x > sl->map->width || map_y > sl->map->height)
 		return (0);
-	block_image = NULL;
+	mxw_put_image_to_image(param->image,
+		sl->bg_block[BG_GRASS], param->image_x, param->image_y);
+	bg_block_type = BG_NONE;
 	if (sl->map->fields[map_y][map_x] == WALL)
-		block_image = sl->wall;
+		bg_block_type = BG_WALL;
 	else if (sl->map->fields[map_y][map_x] == ROAD)
-		block_image = sl->road;
-	if (block_image != NULL)
-		mxw_put_image_to_image(
-			param->image, block_image, param->image_x, param->image_y);
+		bg_block_type = BG_ROAD;
+	if (bg_block_type != BG_NONE)
+		mxw_put_image_to_image(param->image,
+			sl->bg_block[bg_block_type], param->image_x, param->image_y);
 	return (0);
 }

@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_unload.c                                        :+:      :+:    :+:   */
+/*   sl_conf.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/08 14:26:24 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 18:42:51 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/09 18:40:29 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/09 18:41:45 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sl.h"
+#ifndef SL_CONF_H
+# define SL_CONF_H
 
-void	sl_unload(t_sl_this *sl)
-{
-	size_t	index;
+# define MAX_BG_BLOCK 32
 
-	sl_destroy_map(sl->map);
-	sl_destroy_player(sl->player);
-	index = 0;
-	while (index < MAX_BG_BLOCK)
-	{
-		mxw_destroy_image(sl->bg_block[index]);
-		index++;
-	}
-	mxw_destroy_image(sl->background);
-	mxw_destroy_spritesheet(sl->sprite_sheet);
-}
+#endif
