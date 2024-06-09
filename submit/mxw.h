@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 18:06:31 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 18:20:53 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,12 @@ void				mxw_destroy_body(t_mxw_body *body);
 /**
  * MXW Utilities
  */
+int	mxw_create_trgb(int t, int r, int g, int b);
 int	mxw_get_color_t(int trgb);
 int	mxw_get_color_r(int trgb);
 int	mxw_get_color_g(int trgb);
 int	mxw_get_color_b(int trgb);
+int	mxw_calc_alpha_blend(int base_color, int overlap_color);
 
 /**
  *  MLX Utilities.
