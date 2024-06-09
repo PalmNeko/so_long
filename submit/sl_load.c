@@ -6,30 +6,22 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:42:53 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:55:35 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mxw.h"
 #include "sl.h"
 
-int							sl_load_map(t_sl_this *this);
 int							sl_load_assets(t_mxw *mxw, t_sl_this *sl);
 static t_mxw_spritesheet	*sl_load_sprite_sheet(t_mxw *mxw);
 
 int	sl_load(t_sl_this *sl)
 {
-	if (sl_load_map(sl) != 0)
+	sl->map = sl_ber_file_to_map(sl->ber_filename);
+	if (sl->map == NULL)
 		return (-1);
 	return (sl_load_assets(sl->mxw, sl));
-}
-
-int	sl_load_map(t_sl_this *this)
-{
-	this->map = sl_ber_file_to_map(this->ber_filename);
-	if (this->map == NULL)
-		return (-1);
-	return (0);
 }
 
 int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
