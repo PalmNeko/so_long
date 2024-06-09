@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:32:39 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:54:17 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,8 @@ int	sl_destroy(t_sl_this *destroy_arg);
 
 t_sl_player	*sl_new_player(t_sl_this *sl);
 void		sl_destroy_player(t_sl_player *player);
-int			sl_load_assets(t_mxw *mxw, t_sl_this *sl);
 int			sl_load(t_sl_this *sl);
-int			sl_load_map(t_sl_this *this);
-void		sl_unload_assets(t_sl_this *sl);
 void		sl_unload(t_sl_this *sl);
-void		sl_unload_map(t_sl_this *this);
 t_sl_map	*sl_ber_file_to_map(char *ber_filename);
 t_sl_map	*sl_ber_fd_to_map(int fd);
 t_sl_map	*sl_ber_to_map(char **ber_data);
