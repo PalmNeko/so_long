@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_keyboard_handler.c                              :+:      :+:    :+:   */
+/*   sl_draw_image.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 18:15:04 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 18:26:28 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/06/09 17:19:58 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/06/09 17:49:53 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sl.h"
-#include "mxw.h"
-#include <stdio.h>
+#include "sl_types.h"
 
-int	sl_keyboard_handler(int keycode, t_sl_this *vars)
+void sl_draw_image(t_sl_this *sl)
 {
-	if (keycode == KEY_ESC)
-		mxw_set_end(vars->mxw);
-	if (keycode == KEY_RETURN)
-	{
-		mxw_flip_flipbbook(*vars->player->now_flipbook, 1);
-		sl_draw_image(vars);
-		mxw_flip_screen(vars->so_long_window);
-	}
-	return (0);
+	mxw_put_image_to_window(sl->so_long_window, sl->background, 0, 0);
+	mxw_put_image_to_window(sl->so_long_window,
+		mxw_get_image_from_flipbook(*sl->player->now_flipbook), 0, 0);
 }

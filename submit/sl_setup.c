@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:28:05 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 17:22:42 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ int	sl_setup(t_mxw *mxw, t_sl_this *setup_args)
 
 	setup_args->mxw = mxw;
 	setup_args->ber_filename = "maps/sample.ber";
+	setup_args->block_height = 16;
+	setup_args->block_width = 16;
 	if (sl_load(setup_args) != 0)
 		return (-1);
 	so_long_window = mxw_new_window(mxw, 1920, 1080, "Hello world!");
 	if (so_long_window == NULL)
 		return (sl_unload(setup_args), -1);
 	setup_args->so_long_window = so_long_window;
-	mxw_put_image_to_window(so_long_window,
-		mxw_get_image_from_flipbook(*setup_args->player->now_flipbook), 0, 0);
+	sl_draw_image(setup_args);
 	mxw_flip_screen(so_long_window);
 	mxw_add_event(so_long_window, ON_DESTROY, _destroy, setup_args);
 	mxw_add_event(so_long_window, ON_KEYDOWN, sl_keyboard_handler, setup_args);

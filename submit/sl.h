@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:54:17 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 17:22:15 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int			sl_get_ber_height(char **ber_data);
 int			sl_get_ber_width(char **ber_data);
 void		sl_destroy_map(t_sl_map *map);
 void		sl_init_sl_this(t_sl_this *this);
+void 		sl_draw_image(t_sl_this *this);
 
 #endif

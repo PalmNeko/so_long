@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:42:42 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 17:07:10 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ typedef struct s_sl_this
 	t_mxw				*mxw;
 	t_mxw_window		*so_long_window;
 	t_mxw_spritesheet	*sprite_sheet;
+	t_mxw_image			*wall;
+	t_mxw_image			*road;
+	t_mxw_image			*background;
+	int					block_width;
+	int					block_height;
 	t_sl_map			*map;
 	t_sl_player			*player;
 	char				*ber_filename;
