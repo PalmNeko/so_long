@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 12:40:28 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 18:06:31 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,14 @@ t_mxw_flipbook		*mxw_clone_flipbook(t_mxw *mxw, t_mxw_flipbook *flipbook);
 */
 t_mxw_body			*mxw_new_body(t_mxw *mxw, t_mxw_flipbook *flipbook);
 void				mxw_destroy_body(t_mxw_body *body);
+
+/**
+ * MXW Utilities
+ */
+int	mxw_get_color_t(int trgb);
+int	mxw_get_color_r(int trgb);
+int	mxw_get_color_g(int trgb);
+int	mxw_get_color_b(int trgb);
 
 /**
  *  MLX Utilities.
