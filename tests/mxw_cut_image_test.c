@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 15:15:41 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/08 16:54:58 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 12:40:52 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	inner_test_setup(t_test_this *this)
 	mxw_put_image_to_window(this->win, cutted_image, 0, 0);
 	mxw_destroy_image(texture);
 	mxw_destroy_image(cutted_image);
-	mxw_flip_screen(this->mxw, this->win);
+	mxw_flip_screen(this->win);
 	return (0);
 }
 

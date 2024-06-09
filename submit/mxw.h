@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/08 17:09:04 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 12:40:28 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int					mxw_put_image_to_window(
 						t_mxw_image *img_ptr,
 						int x,
 						int y);
-int					mxw_flip_screen(t_mxw *mxw, t_mxw_window *window);
+int					mxw_flip_screen(t_mxw_window *window);
 int					mxw_add_event(
 						t_mxw_window *window,
 						t_mxw_event mxw_event,

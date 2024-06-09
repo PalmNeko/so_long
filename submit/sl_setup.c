@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/08 17:35:59 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 12:40:48 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	sl_setup(t_mxw *mxw, t_sl_this *setup_args)
 	setup_args->so_long_window = so_long_window;
 	mxw_put_image_to_window(so_long_window,
 		mxw_get_image_from_flipbook(*setup_args->player->now_flipbook), 0, 0);
-	mxw_flip_screen(mxw, so_long_window);
+	mxw_flip_screen(so_long_window);
 	mxw_add_event(so_long_window, ON_DESTROY, _destroy, setup_args);
 	mxw_add_event(so_long_window, ON_KEYDOWN, sl_keyboard_handler, setup_args);
 	return (0);
