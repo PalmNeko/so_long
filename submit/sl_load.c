@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:34:58 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:42:53 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	sl_load_map(t_sl_this *this)
 	this->map = sl_ber_file_to_map(this->ber_filename);
 	if (this->map == NULL)
 		return (-1);
+	return (0);
 }
 
 int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:32:30 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 14:42:35 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:39:04 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*create_ber_list_fd(int fd);
 
 t_sl_map	*sl_ber_fd_to_map(int fd)
 {
-	char		*ber_array;
+	char		**ber_array;
 	t_list		*ber_list;
 	t_list		*tmp;
 	size_t		size;
@@ -30,11 +30,11 @@ t_sl_map	*sl_ber_fd_to_map(int fd)
 		return (NULL);
 	tmp = ft_lstnew(NULL);
 	if (tmp == NULL)
-		return (ft_lstclear(ber_list, free), NULL);
+		return (ft_lstclear(&ber_list, free), NULL);
 	ft_lstadd_back(&ber_list, tmp);
-	ber_array = ft_lst_to_array(ber_list, &size);
-	if (ber_array == NULL);
-		return (ft_lstclear(ber_list, free), NULL);
+	ber_array = (char **)ft_lst_to_array(ber_list, &size);
+	if (ber_array == NULL)
+		return (ft_lstclear(&ber_list, free), NULL);
 	map = sl_ber_to_map(ber_array);
 	ft_lstclear(&ber_list, free);
 	free(ber_array);
@@ -55,7 +55,7 @@ t_list	*create_ber_list_fd(int fd)
 	{
 		new_lst = ft_lstnew(line);
 		if (new_lst == NULL)
-			return (free(line), ft_lstclear(root, free), NULL);
+			return (free(line), ft_lstclear(&root, free), NULL);
 		ft_lstadd_back(&iter, new_lst);
 		if (root == NULL)
 			root = iter;

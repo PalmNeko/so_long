@@ -6,12 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:32:00 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:42:42 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SL_H
 # define SL_H
+
+# include "mxw.h"
 
 typedef struct s_sl_player		t_sl_player;
 typedef enum e_sl_block_type	t_sl_block_type;

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:35:41 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 15:52:33 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:45:22 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,22 @@ t_sl_map	*sl_ber_to_map(char **ber_data)
 {
 	t_sl_map	*map;
 	int			index;
+	int			height;
+	int			width;
 
 	if (sl_validate_ber_map_size(ber_data) == false)
 		return (NULL);
-	map->height = sl_get_ber_height(ber_data);
-	map->width = sl_get_ber_width(ber_data);
-	if (map->height < 0 || map->width < 0)
+	height = sl_get_ber_height(ber_data);
+	width = sl_get_ber_width(ber_data);
+	if (height < 0 || width < 0)
 		return (NULL);
-	map = (t_sl_map *)ft_calloc(map->height, sizeof(t_sl_map *));
+	map = (t_sl_map *)malloc(sizeof(t_sl_map));
+	map->fields = (t_sl_block_type **)ft_calloc(
+		height, sizeof(t_sl_block_type *));
 	if (map == NULL)
 		return (NULL);
+	map->height = height;
+	map->width = width;
 	index = 0;
 	while (index < map->height)
 	{
@@ -61,7 +67,10 @@ static t_sl_block_type	*sl_ber_line_to_block(
 		return (NULL);
 	index = 0;
 	while (index < (size_t)width)
-		blocks[index++] = sl_ber_chr_to_block(ber_line[index]);
+	{
+		blocks[index] = sl_ber_chr_to_block(ber_line[index]);
+		index++;
+	}
 	return (blocks);
 }
 

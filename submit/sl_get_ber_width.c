@@ -6,13 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:07:10 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 15:42:20 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:42:25 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include "libft.h"
 
 /**
  * @brief get ber map width.

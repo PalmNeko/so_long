@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:49:23 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 15:50:18 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/09 16:51:36 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ void	sl_destroy_map(t_sl_map *map)
 		free(map->fields[index]);
 		index++;
 	}
+	free(map->fields);
 	free(map);
 }
