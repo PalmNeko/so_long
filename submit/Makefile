@@ -40,7 +40,7 @@ show:
 	@printf "SRCS		:\n	$(SRCS)\n"
 	@printf "OBJS		:\n	$(OBJS)\n"
 
-debug: CFLAGS += -g -O0
+debug: CFLAGS += -g -O0 -fsanitize=leak -fstack-protector-all -ftrapv -fanalyzer
 debug: re
 
 .PHONY: all
