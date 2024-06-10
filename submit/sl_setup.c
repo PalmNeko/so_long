@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/10 18:32:22 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/11 02:34:46 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ int	sl_setup(t_mxw *mxw, t_sl_this *setup_args)
 	setup_args->game_tick_reset_time = MAX_GAME_TICK;
 	if (sl_load(setup_args) != 0)
 		return (-1);
+	sl_move_player(
+		setup_args,
+		setup_args->map->player_point.x,
+		setup_args->map->player_point.y);
+	setup_args->player->now_x = setup_args->player->aim_x;
+	setup_args->player->now_y = setup_args->player->aim_y;
 	so_long_window = mxw_new_window(mxw,
 		WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
 	if (so_long_window == NULL)
