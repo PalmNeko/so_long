@@ -18,7 +18,7 @@ void	sl_update_player(t_sl_player *player, size_t game_tick)
 	int	diff_x;
 	int	diff_y;
 
-	if (game_tick % 100 == 0)
+	if (game_tick % PLAYER_ANIMATION_RATE == 0)
 		mxw_flip_flipbbook(*player->now_flipbook, 1);
 	diff_x = player->aim_x - player->now_x;
 	diff_y = player->aim_y - player->now_y;
