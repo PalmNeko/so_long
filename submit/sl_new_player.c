@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 12:25:28 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/10 17:58:29 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/10 18:02:16 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ t_sl_player	*sl_new_player(t_sl_this *sl)
 	player->y = 0;
 	player->now_x = 0;
 	player->now_y = 0;
+	player->aim_x = 0;
+	player->aim_y = 0;
 	index = 0;
 	while (index < 5)
 		mxw_destroy_image(tmp[index++]);

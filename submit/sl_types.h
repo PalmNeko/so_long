@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/10 17:58:29 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/10 18:01:59 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ struct s_sl_player
 	int					y;
 	int					now_x;
 	int					now_y;
+	int					aim_x;
+	int					aim_y;
 	enum e_direction	direction;
 };
 
