@@ -9,6 +9,13 @@ CFLAGS      = -Wall -Wextra -Werror -MMD -MP -I $(SRCDIR)/libft -I $(SRCDIR) -g 
 LOADLIBES	= -L $(SRCDIR)/libft
 LDLIBS      = -lmlx -framework OpenGL -framework AppKit
 
+ifeq ($(shell uname),Linux)
+	CFLAGS += -I /usr/include
+	LDLIBS  = -lmlx_Linux -lft -lXext -lX11 -lm
+else
+	LDLIBS  = -lmlx -lmlx -lft -framework OpenGL -framework AppKit
+endif
+
 all: $(NAME)
 
 %_test: $(OBJS) %_test.o
