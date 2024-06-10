@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 18:44:39 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/10 21:40:19 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,31 @@ int	sl_load(t_sl_this *sl)
 
 int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
 {
+	t_mxw_image		*tmp;
+	int				index;
+	t_sl_background	bg[] = {BG_WALL, BG_ROAD, BG_GRASS};
+	int				x[] = {0, 9, 10};
+	int				y[] = {14, 16, 15};
+
 	sl->sprite_sheet = sl_load_sprite_sheet(mxw);
 	if (sl->sprite_sheet == NULL)
 		return (-1);
 	sl->player = sl_new_player(sl);
 	if (sl->player == NULL)
 		return (-1);
-	sl->bg_block[BG_WALL] = mxw_cut_spritesheet(mxw, sl->sprite_sheet, 0, 14);
-	if (sl->bg_block[BG_WALL] == NULL)
-		return (-1);
-	sl->bg_block[BG_ROAD] = mxw_cut_spritesheet(mxw, sl->sprite_sheet, 9, 16);
-	if (sl->bg_block[BG_ROAD] == NULL)
-		return (-1);
-	sl->bg_block[BG_GRASS] = mxw_cut_spritesheet(mxw, sl->sprite_sheet, 10, 15);
-	if (sl->bg_block[BG_GRASS] == NULL)
-		return (-1);
+	index = 0;
+	while (index < 3)
+	{
+		sl->bg_block[bg[index]] = mxw_cut_spritesheet(mxw, sl->sprite_sheet, x[index], y[index]);
+		if (sl->bg_block[bg[index]] == NULL)
+			return (-1);
+		tmp = mxw_resize_image(mxw, sl->bg_block[bg[index]], sl->block_width, sl->block_height);
+		if (tmp == NULL)
+			return (-1);
+		mxw_destroy_image(sl->bg_block[bg[index]]);
+		sl->bg_block[bg[index]] = tmp;
+		index++;
+	}
 	return (0);
 }
 
