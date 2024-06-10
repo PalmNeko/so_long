@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 12:25:28 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/11 01:59:27 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/11 02:10:27 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,17 @@ int	sl_assign_player_flipbook(t_sl_player *player, t_sl_this *sl)
 	t_mxw_flipbook	***flipbooks;
 
 	points_xy = (int *[]){
-		(int []){12, 0, 13, 0, 14, 0, 15, 0, 16, 0},
-		(int []){12, 1, 13, 1, 14, 1, 15, 1, 16, 1},
-		(int []){12, 2, 13, 2, 14, 2, 15, 2, 16, 2},
-		(int []){12, 3, 13, 3, 14, 3, 15, 3, 16, 3}};
+		(int []){13, 0, 14, 0, 15, 0, 16, 0},
+		(int []){13, 1, 14, 1, 15, 1, 16, 1},
+		(int []){13, 2, 14, 2, 15, 2, 16, 2},
+		(int []){13, 3, 14, 3, 15, 3, 16, 3}};
 	flipbooks = (t_mxw_flipbook **[4]){
 		&player->down_flipbook, &player->up_flipbook,
 		&player->right_flipbook, &player->left_flipbook};
 	index = 0;
 	while (index < 4)
 	{
-		*flipbooks[index] = sprite_sheet_to_player_flipbook(sl, points_xy[index], 5);
+		*flipbooks[index] = sprite_sheet_to_player_flipbook(sl, points_xy[index], 4);
 		if (*flipbooks[index] == NULL)
 		{
 			while (index >= 0)
