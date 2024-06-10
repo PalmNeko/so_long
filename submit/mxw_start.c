@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:19:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 23:48:45 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/10 22:16:56 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,14 @@ int	mxw_start(t_mxw_start_param param)
 
 int	mxw_loop(t_mxw *mxw)
 {
-	mxw->loop(mxw, mxw->loop_args);
 	if (mxw->is_exit == true)
 	{
 		mxw_destroy_mxw(mxw);
 		exit(0);
 	}
-	if (mxw->is_end == true)
+	if (mxw->is_end == false)
+		mxw->loop(mxw, mxw->loop_args);
+	else
 	{
 		mxw->destroy(mxw->destroy_args);
 		mxw_int_clean_windows(mxw);
