@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 18:20:53 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/10 18:52:42 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,11 @@ void				mxw_pixel_put_to_image(
 int					mxw_pixel_get_from_image(t_mxw_image *data, int x, int y);
 int					mxw_print_image(t_mxw_image *image);
 t_mxw_image			*mxw_clone_image(t_mxw *mxw, t_mxw_image *image);
-
+t_mxw_image			*mxw_resize_image(
+						t_mxw *mxw,
+						t_mxw_image *base_image,
+						int width,
+						int height);
 /**
  * t_mxw_spritesheet
 */
