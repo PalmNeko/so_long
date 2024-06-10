@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/10 18:01:59 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/10 18:17:40 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct s_sl_this
 	t_sl_map			*map;
 	t_sl_player			*player;
 	char				*ber_filename;
+	size_t				game_tick;
+	size_t				game_tick_reset_time;
 }	t_sl_this;
 
 enum e_direction

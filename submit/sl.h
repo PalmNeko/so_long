@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/10 18:05:20 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/10 18:19:14 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void		sl_destroy_map(t_sl_map *map);
 void		sl_init_sl_this(t_sl_this *this);
 void 		sl_draw_image(t_sl_this *this);
 void		sl_move_player(t_sl_this *sl, int x, int y);
-void		sl_update_player(t_sl_player *player);
+void		sl_update_player(t_sl_player *player, size_t game_tick);
 
 #endif

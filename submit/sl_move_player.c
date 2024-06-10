@@ -29,6 +29,7 @@ void	sl_move_player(t_sl_this *sl, int x, int y)
 		sl->player->direction = LEFT;
 	else if (sl->player->y > y)
 		sl->player->direction = UP;
+	mxw_reset_flipbook(*sl->player->now_flipbook);
 	sl->player->x = x;
 	sl->player->y = y;
 	sl->player->aim_x = sl->player->x * sl->block_width;
