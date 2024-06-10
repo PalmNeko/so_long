@@ -24,7 +24,9 @@ void	sl_update_player(t_sl_player *player, size_t game_tick)
 	diff_y = player->aim_y - player->now_y;
 	if (diff_x == 0 && diff_y == 0)
 		return ;
-	player->now_x += diff_x / abs(diff_x);
-	player->now_y += diff_y / abs(diff_y);
+	if (diff_x != 0)
+		player->now_x += diff_x / abs(diff_x);
+	if (diff_y != 0)
+		player->now_y += diff_y / abs(diff_y);
 	return ;
 }
