@@ -8,7 +8,7 @@ LIBFT		= libft
 CFLAGS      = -Wall -Wextra -Werror -MMD -MP -I libft
 LOADLIBES	= -L libft
 ifeq ($(shell uname),Linux)
-	CFLAGS += -I /usr/include -D XK_MISCELLANY
+	CFLAGS += -I /usr/include
 	LDLIBS  = -lmlx_Linux -lft -lXext -lX11 -lm
 else
 	LDLIBS  = -lmlx -lmlx -lft -framework OpenGL -framework AppKit

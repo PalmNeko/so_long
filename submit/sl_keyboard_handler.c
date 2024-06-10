@@ -6,14 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 18:15:04 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/10 16:36:42 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:50:33 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sl.h"
 #include "mxw.h"
 #include <stdio.h>
-#include <X11/keysymdef.h>
+#include <X11/Xutil.h>
 
 int	sl_keyboard_handler(int keycode, t_sl_this *vars)
 {
