@@ -6,13 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/10 18:19:14 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/11 02:55:07 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <stdbool.h>
 # include "mxw_types.h"
 # include "sl_types.h"
 
@@ -36,5 +37,6 @@ void		sl_init_sl_this(t_sl_this *this);
 void 		sl_draw_image(t_sl_this *this);
 void		sl_move_player(t_sl_this *sl, int x, int y);
 void		sl_update_player(t_sl_player *player, size_t game_tick);
+bool		sl_detect_collision_map(t_sl_map *map, int x, int y);
 
 #endif

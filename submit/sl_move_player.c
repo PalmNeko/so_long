@@ -10,15 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sl_types.h"
+#include "sl.h"
 
 void	sl_set_direction(t_sl_player *player, enum e_direction direction);
 
 void	sl_move_player(t_sl_this *sl, int x, int y)
 {
-	if (! (0 <= x && x < sl->map->width)
-		|| ! (0 <= y && y < sl->map->height))
-		return ;
 	if (sl->player->aim_x != sl->player->now_x)
 		return ;
 	if (sl->player->aim_y != sl->player->now_y)
@@ -31,7 +28,8 @@ void	sl_move_player(t_sl_this *sl, int x, int y)
 		sl_set_direction(sl->player, LEFT);
 	else if (sl->player->y > y)
 		sl_set_direction(sl->player, UP);
-	mxw_reset_flipbook(*sl->player->now_flipbook);
+	if (sl_detect_collision_map(sl->map, x, y) == true)
+		return ;
 	sl->player->x = x;
 	sl->player->y = y;
 	sl->player->aim_x = sl->player->x * sl->block_width;
