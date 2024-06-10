@@ -38,6 +38,9 @@ void	sl_move_player(t_sl_this *sl, int x, int y)
 
 void	sl_set_direction(t_sl_player *player, enum e_direction direction)
 {
+	int	iter;
+
+	iter = (*player->now_flipbook)->iter;
 	player->direction = direction;
 	if (direction == RIGHT)
 		player->now_flipbook = &player->right_flipbook;
@@ -47,5 +50,7 @@ void	sl_set_direction(t_sl_player *player, enum e_direction direction)
 		player->now_flipbook = &player->left_flipbook;
 	else if (direction == UP)
 		player->now_flipbook = &player->up_flipbook;
+	mxw_reset_flipbook(*player->now_flipbook);
+	mxw_flip_flipbbook(*player->now_flipbook, iter);
 	return ;
 }
