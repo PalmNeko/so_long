@@ -6,11 +6,11 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 21:47:11 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 22:27:00 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:36:35 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mxw_types.h"
+#include "mxw.h"
 
 int	mxw_int_expose_handler(t_mxw_window *param)
 {
@@ -39,5 +39,7 @@ int	mxw_int_destroy_handler(t_mxw_window *param)
 		event->handler(event->param);
 		index++;
 	}
+	param->has_mlx_win = false;
+	mxw_destroy_window(param);
 	return (0);
 }

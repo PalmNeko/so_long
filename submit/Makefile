@@ -7,7 +7,12 @@ DEPENDS     = $(OBJS:.o=.d)
 LIBFT		= libft
 CFLAGS      = -Wall -Wextra -Werror -MMD -MP -I libft
 LOADLIBES	= -L libft
-LDLIBS      = -lmlx -lmlx -lft -framework OpenGL -framework AppKit
+ifeq ($(shell uname),Linux)
+	CFLAGS += -I /usr/include -D XK_MISCELLANY
+	LDLIBS  = -lmlx_Linux -lft -lXext -lX11 -lm
+else
+	LDLIBS  = -lmlx -lmlx -lft -framework OpenGL -framework AppKit
+endif
 
 all: $(NAME)
 
