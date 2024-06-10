@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 18:43:51 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/10 17:58:29 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ struct s_sl_player
 	t_mxw_flipbook		**now_flipbook;
 	int					x;
 	int					y;
+	int					now_x;
+	int					now_y;
 	enum e_direction	direction;
 };
 
