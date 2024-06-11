@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/10 21:40:19 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/11 13:47:22 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	sl_load(t_sl_this *sl)
 int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
 {
 	t_mxw_image		*tmp;
-	int				index;
-	t_sl_background	bg[] = {BG_WALL, BG_ROAD, BG_GRASS};
-	int				x[] = {0, 9, 10};
-	int				y[] = {14, 16, 15};
+	size_t			index;
+	t_sl_background	bg[] = {BG_WALL, BG_ROAD, BG_GRASS, BG_GOAL};
+	int				x[] = {0, 9, 10, 6};
+	int				y[] = {14, 16, 15, 11};
 
 	sl->sprite_sheet = sl_load_sprite_sheet(mxw);
 	if (sl->sprite_sheet == NULL)
@@ -45,7 +45,7 @@ int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
 	if (sl->player == NULL)
 		return (-1);
 	index = 0;
-	while (index < 3)
+	while (index < (sizeof(bg) / sizeof(bg[0])))
 	{
 		sl->bg_block[bg[index]] = mxw_cut_spritesheet(mxw, sl->sprite_sheet, x[index], y[index]);
 		if (sl->bg_block[bg[index]] == NULL)
@@ -111,7 +111,9 @@ static int	put_on_block(t_sl_this *sl, t_mxw_fip_param *param)
 	mxw_put_image_to_image(param->image,
 		sl->bg_block[BG_GRASS], param->image_x, param->image_y);
 	bg_block_type = BG_NONE;
-	if (sl->map->fields[map_y][map_x] == WALL)
+	if (sl->map->goal_point.x == map_x && sl->map->goal_point.y == map_y)
+		bg_block_type = BG_GOAL;
+	else if (sl->map->fields[map_y][map_x] == WALL)
 		bg_block_type = BG_WALL;
 	else if (sl->map->fields[map_y][map_x] == ROAD)
 		bg_block_type = BG_ROAD;

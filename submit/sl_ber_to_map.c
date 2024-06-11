@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:35:41 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/11 02:38:03 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/11 13:22:02 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 static t_sl_block_type	*sl_ber_line_to_block(
 	char *ber_line, const int width);
 static t_sl_block_type	sl_ber_chr_to_block(char ber_chr);
-static t_sl_point		sl_get_player_point(char **ber_data);
+static t_sl_point		sl_get_char_point(char **ber_data, char c);
 
 /**
  * @param ber_data NULL terminated string array.
@@ -52,7 +52,8 @@ t_sl_map	*sl_ber_to_map(char **ber_data)
 			return (sl_destroy_map(map), NULL);
 		index++;
 	}
-	map->player_point = sl_get_player_point(ber_data);
+	map->player_point = sl_get_char_point(ber_data, PLAYER_CHARACTER);
+	map->goal_point = sl_get_char_point(ber_data, GOAL_CHARACTER);
 	return (map);
 }
 
@@ -84,7 +85,7 @@ static t_sl_block_type	sl_ber_chr_to_block(char ber_chr)
 		return (ROAD);
 }
 
-static t_sl_point	sl_get_player_point(char **ber_data)
+static t_sl_point	sl_get_char_point(char **ber_data, char c)
 {
 	int	y;
 	int	x;
@@ -95,7 +96,7 @@ static t_sl_point	sl_get_player_point(char **ber_data)
 		x = 0;
 		while (ber_data[y][x] != '\0')
 		{
-			if (ber_data[y][x] == 'P')
+			if (ber_data[y][x] == c)
 				return ((t_sl_point){.x = x, .y = y});
 			x++;
 		}
