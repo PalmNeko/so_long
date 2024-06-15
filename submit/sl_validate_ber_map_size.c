@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 14:56:37 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 05:52:21 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 06:16:26 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static bool	sl_validate_ber_map_height(char **ber_data)
 	int		field_height;
 
 	field_height = sl_get_ber_height(ber_data);
-	if (field_height < 3)
+	if (field_height < 0)
 		return (false);
 	return (true);
 }
