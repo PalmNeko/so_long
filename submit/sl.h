@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 04:31:01 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 04:50:46 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SL_H
 
 # include <stdbool.h>
+# include <stdint.h>
 # include "mxw_types.h"
 # include "sl_param.h"
 # include "sl_types.h"
@@ -51,5 +52,7 @@ void 		sl_teleport_random_player(t_sl_this *sl, t_sl_player *player);
 bool		sl_detect_collision_enemy(t_sl_player *player, t_sl_player *enemy);
 void		sl_move_player_wrap(
 				t_sl_this *sl, t_sl_player *player, t_direction direct);
+uint32_t	sl_xorshift(uint32_t seed, uint32_t x);
+void		sl_move_enemy_wrap(t_sl_this *sl, t_sl_player *enemy);
 
 #endif

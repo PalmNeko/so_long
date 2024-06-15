@@ -13,7 +13,6 @@
 #include "sl.h"
 #include <stdint.h>
 
-static unsigned int	xorshift(unsigned int seed, unsigned int x);
 int 				_sl_teleport_random_player(
 						t_sl_this *sl, t_sl_player *player);
 
@@ -55,9 +54,9 @@ int _sl_teleport_random_player(t_sl_this *sl, t_sl_player *player)
 	while (index < 1000)
 	{
 		cnt++;
-		x = xorshift(seed, cnt) % sl->map->width;
+		x = sl_xorshift(seed, cnt) % sl->map->width;
 		cnt++;
-		y = xorshift(seed, cnt) % sl->map->height;
+		y = sl_xorshift(seed, cnt) % sl->map->height;
 		if (sl->map->fields[y][x] != WALL)
 		{
 			sl_teleport_player(sl, player, x, y);
@@ -66,13 +65,4 @@ int _sl_teleport_random_player(t_sl_this *sl, t_sl_player *player)
 		index++;
 	}
 	return (-1);
-}
-
-static unsigned int	xorshift(unsigned int seed, unsigned int x)
-{
-	x ^= seed;
-	x ^= x << 13;
-	x ^= x >> 17;
-	x ^= x << 5;
-	return (x);
 }

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:13:50 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 03:58:41 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 04:50:33 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	sl_loop(t_mxw *mxw, t_sl_this *sl)
 	sl->game_tick += 1;
 	if (sl->game_tick > sl->game_tick_reset_time)
 		sl->game_tick = 0;
+	sl_move_enemy_wrap(sl, sl->enemy);
 	sl_update_player(sl->player, sl->game_tick);
 	sl_update_player(sl->enemy, sl->game_tick);
 	sl_update_map(sl);
