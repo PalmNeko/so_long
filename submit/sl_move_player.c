@@ -37,7 +37,7 @@ void	sl_move_player(t_sl_this *sl, int x, int y)
 	sl->player->x = x;
 	sl->player->y = y;
 	sl->player->aim_x = sl->player->x * sl->block_width;
-	sl->player->aim_y = sl->player->y * sl->block_width;
+	sl->player->aim_y = sl->player->y * sl->block_height;
 }
 
 void	sl_set_direction(t_sl_player *player, enum e_direction direction)

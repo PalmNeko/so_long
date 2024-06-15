@@ -19,7 +19,7 @@ void	sl_teleport_player(t_sl_this *sl, int x, int y)
 	sl->player->x = x;
 	sl->player->y = y;
 	sl->player->aim_x = sl->player->x * sl->block_width;
-	sl->player->aim_y = sl->player->y * sl->block_width;
+	sl->player->aim_y = sl->player->y * sl->block_height;
 	sl->player->now_x = sl->player->aim_x;
 	sl->player->now_y = sl->player->aim_y;
 	return ;
