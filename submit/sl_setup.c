@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 21:26:26 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 21:31:22 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	sl_setup(t_mxw *mxw, t_sl_this *sl)
 		sl,
 		sl->map->player_point.x,
 		sl->map->player_point.y);
-	sl->player->now_x = sl->player->aim_x;
-	sl->player->now_y = sl->player->aim_y;
+	sl->camera_point.x = 0;
+	sl->camera_point.y = 0;
 	so_long_window = create_so_long_window(sl);
 	if (so_long_window == NULL)
 		return (sl_unload(sl), -1);
