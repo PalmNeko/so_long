@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 14:56:37 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 15:18:03 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 05:52:21 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "libft.h"
+#include "sl_errors.h"
 #include "sl.h"
 
 static bool	sl_validate_ber_map_width(char **ber_data);
@@ -33,8 +34,8 @@ static bool	sl_validate_ber_map_width(char **ber_data)
 	int		field_width;
 
 	field_width = sl_get_ber_width(ber_data);
-	if (field_width < 3)
-		return (false);
+	if (field_width == -2)
+		return (sl_put_error(SL_EMAP_WIDTH), false);
 	return (true);
 }
 

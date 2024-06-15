@@ -20,6 +20,9 @@ void	sl_put_error(int sl_errno)
 	ft_putstr_fd("Error\n", 2);
 	errtext = sl_strerror(sl_errno);
 	if (errtext != NULL)
+	{
 		ft_putstr_fd(errtext, 2);
+		ft_putstr_fd("\n", 2);
+	}
 	return ;
 }

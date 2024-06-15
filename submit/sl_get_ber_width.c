@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:07:10 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:42:25 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 05:50:30 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	sl_get_ber_width(char **ber_data)
 	while (*iter != NULL)
 	{
 		if (field_width != ft_strlen(*iter) - 1)
-			return (-1);
+			return (-2);
 		iter++;
 	}
 	return ((int)field_width);
