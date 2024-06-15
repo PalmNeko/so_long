@@ -12,15 +12,15 @@
 
 #include "sl.h"
 
-void	sl_teleport_player(t_sl_this *sl, int x, int y)
+void	sl_teleport_player(t_sl_this *sl, t_sl_player *player, int x, int y)
 {
 	if (sl_detect_collision_map(sl->map, x, y) == true)
 		return ;
-	sl->player->x = x;
-	sl->player->y = y;
-	sl->player->aim_x = sl->player->x * sl->block_width;
-	sl->player->aim_y = sl->player->y * sl->block_height;
-	sl->player->now_x = sl->player->aim_x;
-	sl->player->now_y = sl->player->aim_y;
+	player->x = x;
+	player->y = y;
+	player->aim_x = player->x * sl->block_width;
+	player->aim_y = player->y * sl->block_height;
+	player->now_x = player->aim_x;
+	player->now_y = player->aim_y;
 	return ;
 }

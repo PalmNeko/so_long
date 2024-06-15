@@ -42,7 +42,7 @@ bool		sl_detect_collision_map(t_sl_map *map, int x, int y);
 int			sl_load_assets(t_mxw *mxw, t_sl_this *sl);
 void		*sl_foreach_map(t_sl_foreach_map_param *param);
 void		sl_update_map(t_sl_this *sl);
-void		sl_teleport_player(t_sl_this *sl, int x, int y);
+void		sl_teleport_player(t_sl_this *sl, t_sl_player *player, int x, int y);
 void		sl_print_move_counter(int move_count);
 int			sl_count_block(t_sl_map	*map, t_sl_block_type block);
 t_mxw_image	*sl_cut_spritesheet(

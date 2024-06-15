@@ -36,7 +36,7 @@ int	sl_setup(t_mxw *mxw, t_sl_this *sl)
 		return (-1);
 	sl->max_item_count = sl_count_block(sl->map, ITEM);
 	sl_teleport_player(
-		sl,
+		sl, sl->player,
 		sl->map->player_point.x,
 		sl->map->player_point.y);
 	sl->camera_point.x = 0;
