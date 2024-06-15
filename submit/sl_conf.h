@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 18:40:29 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 20:39:02 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 01:12:08 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # define PLAYER_ANIMATION_RATE 110
 # define BLOCK_TILE_WIDTH 32
 # define BLOCK_TILE_HEIGHT 32
+# define MAX_WINDOW_TILE_WIDTH 16
+# define MAX_WINDOW_TILE_HEIGHT 16
 # define IMAGE_SCALE 2
 # define MAX_GAME_TICK 1000000
 # define WINDOW_TITLE "Hello world!"

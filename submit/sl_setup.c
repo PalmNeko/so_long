@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 21:31:22 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 01:03:09 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ t_mxw_window	*create_so_long_window(t_sl_this *sl)
 	width = sl->map->width * sl->block_width;
 	if (height < 0 || width < 0)
 		return (NULL);
-	if (width > 32 * sl->block_width)
-		width = 32 * sl->block_width;
-	if (height > 32 * sl->block_height)
-		height = 32 * sl->block_height;
+	if (width > MAX_WINDOW_TILE_WIDTH * sl->block_width)
+		width = MAX_WINDOW_TILE_WIDTH * sl->block_width;
+	if (height > MAX_WINDOW_TILE_HEIGHT * sl->block_height)
+		height = MAX_WINDOW_TILE_HEIGHT * sl->block_height;
 	so_long_window = mxw_new_window(sl->mxw, width, height, WINDOW_TITLE);
 	return (so_long_window);
 }
