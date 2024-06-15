@@ -14,6 +14,7 @@
 #include "sl.h"
 
 static int					sl_load_image_item(t_sl_this *sl);
+static int					sl_load_players(t_sl_this *sl);
 static t_mxw_spritesheet	*sl_load_sprite_sheet(t_mxw *mxw);
 
 int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
@@ -26,12 +27,7 @@ int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
 	sl->sprite_sheet = sl_load_sprite_sheet(mxw);
 	if (sl->sprite_sheet == NULL)
 		return (-1);
-	sl->player = sl_new_player(sl, (int *[]){
-		(int []){13, 0, 14, 0, 15, 0, 16, 0},
-		(int []){13, 1, 14, 1, 15, 1, 16, 1},
-		(int []){13, 2, 14, 2, 15, 2, 16, 2},
-		(int []){13, 3, 14, 3, 15, 3, 16, 3}}, 4);
-	if (sl->player == NULL)
+	if (sl_load_players(sl) != 0)
 		return (-1);
 	index = 0;
 	while (index < (sizeof(bg) / sizeof(bg[0])))
@@ -59,6 +55,18 @@ static int	sl_load_image_item(t_sl_this *sl)
 	if (tmp == NULL)
 		return (-1);
 	sl->img_item = tmp;
+	return (0);
+}
+
+static int					sl_load_players(t_sl_this *sl)
+{
+	sl->player = sl_new_player(sl, (int *[]){
+		(int []){13, 0, 14, 0, 15, 0, 16, 0},
+		(int []){13, 1, 14, 1, 15, 1, 16, 1},
+		(int []){13, 2, 14, 2, 15, 2, 16, 2},
+		(int []){13, 3, 14, 3, 15, 3, 16, 3}}, 4);
+	if (sl->player == NULL)
+		return (-1);
 	return (0);
 }
 
