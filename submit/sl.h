@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 04:50:46 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 05:51:18 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ void		sl_move_player_wrap(
 				t_sl_this *sl, t_sl_player *player, t_direction direct);
 uint32_t	sl_xorshift(uint32_t seed, uint32_t x);
 void		sl_move_enemy_wrap(t_sl_this *sl, t_sl_player *enemy);
+char		*sl_strerror(int sl_errno);
+void		sl_put_error(int sl_errno);
 
 #endif
