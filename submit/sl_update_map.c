@@ -12,28 +12,15 @@
 
 #include "sl.h"
 
-static int	delete_item(t_sl_this *sl, t_sl_fmp_param *param);
-
 void	sl_update_map(t_sl_this *sl)
 {
-	sl_foreach_map((t_sl_foreach_map_param []){{
-		.f = delete_item,
-		.map = sl->map,
-		.result = NULL,
-		.your_param = sl,
-	}});
-}
-
-static int	delete_item(t_sl_this *sl, t_sl_fmp_param *param)
-{
-	if (param->map->fields[param->index_y][param->index_x] == ITEM)
+	if (sl->map->fields[sl->player->y][sl->player->x] == ITEM)
 	{
-		if (param->index_y * sl->block_height == sl->player->now_y
-			&& param->index_x * sl->block_width == sl->player->now_x)
+		if (sl->player->y * sl->block_height == sl->player->now_y
+			&& sl->player->x * sl->block_width == sl->player->now_x)
 		{
-			param->map->fields[param->index_y][param->index_x] = NONE;
+			sl->map->fields[sl->player->y][sl->player->x] = NONE;
 			sl->item_count += 1;
 		}
 	}
-	return (0);
 }

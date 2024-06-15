@@ -5,7 +5,7 @@ SRCS        = $(shell find $(SRCDIR) -name "*.c" -type f -not -path "*/libft/*.c
 OBJS        = $(SRCS:%.c=%.o)
 DEPENDS     = $(OBJS:.o=.d)
 LIBFT		= libft
-CFLAGS      = -Wall -Wextra -Werror -MMD -MP -I libft
+CFLAGS      = -Wall -Wextra -Werror -MMD -MP -I libft -O3
 LOADLIBES	= -L libft
 ifeq ($(shell uname),Linux)
 	CFLAGS += -I /usr/include
