@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/11 02:34:46 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:56:02 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	sl_setup(t_mxw *mxw, t_sl_this *setup_args)
 	setup_args->game_tick_reset_time = MAX_GAME_TICK;
 	if (sl_load(setup_args) != 0)
 		return (-1);
-	sl_move_player(
+	sl_teleport_player(
 		setup_args,
 		setup_args->map->player_point.x,
 		setup_args->map->player_point.y);

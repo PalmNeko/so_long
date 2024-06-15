@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 16:34:10 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:07:58 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ bool		sl_detect_collision_map(t_sl_map *map, int x, int y);
 int			sl_load_assets(t_mxw *mxw, t_sl_this *sl);
 void		*sl_foreach_map(t_sl_foreach_map_param *param);
 void		sl_update_map(t_sl_this *sl);
+void		sl_teleport_player(t_sl_this *sl, int x, int y);
+void		sl_print_move_counter(int move_count);
 
 #endif

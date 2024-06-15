@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 18:40:29 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 15:55:20 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:14:02 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,10 @@
 # define WINDOW_TITLE "Hello world!"
 # define PLAYER_CHARACTER 'P'
 # define GOAL_CHARACTER 'E'
+
+# ifdef BONUS
+# else
+#  define PRINT_MOVE_COUNTER_TO_SHELL
+# endif
 
 #endif
