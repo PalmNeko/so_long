@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/10 17:23:44 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 21:26:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(void)
 	t_mxw_start_param	mxw_start_param;
 
 	sl_init_sl_this(&ls_this);
+	ls_this.ber_filename = "maps/sample2.ber";
 	mxw_start_param = (t_mxw_start_param){
 		.setup = sl_setup,
 		.loop = sl_loop,

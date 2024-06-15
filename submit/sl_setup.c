@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 21:21:30 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 21:26:26 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	sl_setup(t_mxw *mxw, t_sl_this *sl)
 	t_mxw_window		*so_long_window;
 
 	sl->mxw = mxw;
-	sl->ber_filename = "maps/sample2.ber";
 	sl->block_height = BLOCK_TILE_HEIGHT;
 	sl->block_width = BLOCK_TILE_WIDTH;
 	sl->game_tick_reset_time = MAX_GAME_TICK;
