@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 14:56:10 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 15:02:54 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,18 @@ struct s_sl_map {
 	t_sl_block_type	**fields;
 	t_sl_point		player_point;
 	t_sl_point		goal_point;
+	t_sl_point		*collect_points;
 	int				width;
 	int				height;
 };
 
 enum e_sl_block_type {
+	NONE,
 	WALL,
 	ROAD,
+	GOAL,
+	PLAYER,
+	ITEM,
 };
 
 enum s_sl_background
