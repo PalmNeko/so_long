@@ -30,6 +30,10 @@ fclean: clean
 
 re: fclean all
 
+bonus: CFLAGS += -D BONUS
+bonus: $(LIBFT) $(OBJS)
+	$(LINK.o) $(OBJS) $(LOADLIBES) $(LDLIBS) -o $@
+
 -include .development.mk
 
 show:

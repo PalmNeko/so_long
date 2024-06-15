@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:35:41 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/11 13:22:02 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 15:03:06 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_sl_point		sl_get_char_point(char **ber_data, char c);
 
 /**
  * @param ber_data NULL terminated string array.
-*/
+ */
 t_sl_map	*sl_ber_to_map(char **ber_data)
 {
 	t_sl_map	*map;
@@ -79,10 +79,18 @@ static t_sl_block_type	*sl_ber_line_to_block(
 
 static t_sl_block_type	sl_ber_chr_to_block(char ber_chr)
 {
-	if (ber_chr == '1')
-		return (WALL);
-	else
+	if (ber_chr == '0')
 		return (ROAD);
+	else if (ber_chr == '1')
+		return (WALL);
+	else if (ber_chr == 'C')
+		return (ITEM);
+	else if (ber_chr == 'E')
+		return (GOAL);
+	else if (ber_chr == 'P')
+		return (PLAYER);
+	else
+		return (NONE);
 }
 
 static t_sl_point	sl_get_char_point(char **ber_data, char c)

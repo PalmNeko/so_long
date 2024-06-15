@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "sl.h"
+#include <limits.h>
 
 void	sl_set_direction(t_sl_player *player, enum e_direction direction);
 
@@ -30,10 +31,13 @@ void	sl_move_player(t_sl_this *sl, int x, int y)
 		sl_set_direction(sl->player, UP);
 	if (sl_detect_collision_map(sl->map, x, y) == true)
 		return ;
+	if (sl->move_count < INT_MAX)
+		sl->move_count += 1;
+	sl_print_move_counter(sl->move_count);
 	sl->player->x = x;
 	sl->player->y = y;
 	sl->player->aim_x = sl->player->x * sl->block_width;
-	sl->player->aim_y = sl->player->y * sl->block_width;
+	sl->player->aim_y = sl->player->y * sl->block_height;
 }
 
 void	sl_set_direction(t_sl_player *player, enum e_direction direction)

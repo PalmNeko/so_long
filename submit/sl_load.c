@@ -6,16 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/11 13:47:22 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 19:37:42 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mxw.h"
 #include "sl.h"
 
-int							sl_load_assets(t_mxw *mxw, t_sl_this *sl);
-int							sl_load_background(t_sl_this *this);
-static t_mxw_spritesheet	*sl_load_sprite_sheet(t_mxw *mxw);
+int			sl_load_background(t_sl_this *sl);
 static int	put_on_block(t_sl_this *sl, t_mxw_fip_param *param);
 
 int	sl_load(t_sl_this *sl)
@@ -30,68 +28,26 @@ int	sl_load(t_sl_this *sl)
 	return (0);
 }
 
-int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
+int	sl_load_background(t_sl_this *sl)
 {
-	t_mxw_image		*tmp;
-	size_t			index;
-	t_sl_background	bg[] = {BG_WALL, BG_ROAD, BG_GRASS, BG_GOAL};
-	int				x[] = {0, 9, 10, 6};
-	int				y[] = {14, 16, 15, 11};
-
-	sl->sprite_sheet = sl_load_sprite_sheet(mxw);
-	if (sl->sprite_sheet == NULL)
-		return (-1);
-	sl->player = sl_new_player(sl);
-	if (sl->player == NULL)
-		return (-1);
-	index = 0;
-	while (index < (sizeof(bg) / sizeof(bg[0])))
-	{
-		sl->bg_block[bg[index]] = mxw_cut_spritesheet(mxw, sl->sprite_sheet, x[index], y[index]);
-		if (sl->bg_block[bg[index]] == NULL)
-			return (-1);
-		tmp = mxw_resize_image(mxw, sl->bg_block[bg[index]], sl->block_width, sl->block_height);
-		if (tmp == NULL)
-			return (-1);
-		mxw_destroy_image(sl->bg_block[bg[index]]);
-		sl->bg_block[bg[index]] = tmp;
-		index++;
-	}
-	return (0);
-}
-
-static t_mxw_spritesheet	*sl_load_sprite_sheet(t_mxw *mxw)
-{
-	t_mxw_image			*textures;
-	t_mxw_spritesheet	*sprite_sheet;
-
-	textures = mxw_xpm_file_to_image(mxw, "textures/textures.xpm");
-	if (textures == NULL)
-		return (NULL);
-	sprite_sheet = mxw_new_spritesheet(mxw, textures, 16, 16);
-	mxw_destroy_image(textures);
-	if (sprite_sheet == NULL)
-		return (NULL);
-	return (sprite_sheet);
-}
-
-int	sl_load_background(t_sl_this *this)
-{
-	this->background = mxw_new_image(this->mxw,
-		this->block_width * this->map->width,
-		this->block_height * this->map->height);
-	if (this->background == NULL)
+	sl->background = mxw_new_image(sl->mxw,
+		sl->block_width * sl->map->width,
+		sl->block_height * sl->map->height);
+	if (sl->background == NULL)
 		return (-1);
 	mxw_foreach_image((t_mxw_foreach_image_param []) {{
-		.image = this->background,
+		.image = sl->background,
 		.offset_x = 0,
 		.offset_y = 0,
-		.width = this->background->width,
-		.height = this->background->height,
+		.width = sl->background->width,
+		.height = sl->background->height,
 		.result = NULL,
-		.your_param = this,
+		.your_param = sl,
 		.f = put_on_block,
 	}});
+	sl->counter_header = mxw_xpm_file_to_image(sl->mxw, "textures/count_header.xpm");
+	if (sl->counter_header == NULL)
+		return (-1);
 	return (0);
 }
 

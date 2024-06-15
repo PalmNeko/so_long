@@ -6,12 +6,12 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/11 13:35:12 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:43:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SL_H
-# define SL_H
+#ifndef SL_TYPES_H
+# define SL_TYPES_H
 
 # include "sl_conf.h"
 # include "mxw.h"
@@ -31,13 +31,18 @@ struct s_sl_map {
 	t_sl_block_type	**fields;
 	t_sl_point		player_point;
 	t_sl_point		goal_point;
+	t_sl_point		*collect_points;
 	int				width;
 	int				height;
 };
 
 enum e_sl_block_type {
+	NONE,
 	WALL,
 	ROAD,
+	GOAL,
+	PLAYER,
+	ITEM,
 };
 
 enum s_sl_background
@@ -57,8 +62,12 @@ typedef struct s_sl_this
 	t_mxw_spritesheet	*sprite_sheet;
 	t_mxw_image			*bg_block[MAX_BG_BLOCK];
 	t_mxw_image			*background;
+	t_mxw_image			*img_item;
+	t_mxw_image			*counter_header;
 	int					block_width;
 	int					block_height;
+	int					item_count;
+	int					move_count;
 	t_sl_map			*map;
 	t_sl_player			*player;
 	char				*ber_filename;
