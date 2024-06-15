@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:13:50 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/11 14:06:02 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 16:34:46 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	sl_loop(t_mxw *mxw, t_sl_this *loop_args)
 	if (loop_args->game_tick > loop_args->game_tick_reset_time)
 		loop_args->game_tick = 0;
 	sl_update_player(loop_args->player, loop_args->game_tick);
+	sl_update_map(loop_args);
 	sl_draw_image(loop_args);
 	mxw_flip_screen(loop_args->so_long_window);
 	if (is_gameend(loop_args))
