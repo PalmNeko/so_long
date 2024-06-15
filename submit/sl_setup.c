@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 20:22:50 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 21:21:30 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	sl_setup(t_mxw *mxw, t_sl_this *sl)
 	sl->game_tick_reset_time = MAX_GAME_TICK;
 	if (sl_load(sl) != 0)
 		return (-1);
+	sl->max_item_count = sl_count_block(sl->map, ITEM);
 	sl_teleport_player(
 		sl,
 		sl->map->player_point.x,
