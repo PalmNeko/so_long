@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 02:18:39 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 02:31:55 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ void		sl_update_map(t_sl_this *sl);
 void		sl_teleport_player(t_sl_this *sl, int x, int y);
 void		sl_print_move_counter(int move_count);
 int			sl_count_block(t_sl_map	*map, t_sl_block_type block);
+t_mxw_image	*sl_cut_spritesheet(
+				t_mxw *mxw, t_mxw_spritesheet *sheet, int x, int y);
 
 #endif
