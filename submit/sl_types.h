@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 02:50:38 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 04:20:36 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef enum e_sl_block_type	t_sl_block_type;
 typedef struct s_sl_map		t_sl_map;
 typedef enum s_sl_background	t_sl_background;
 typedef struct s_sl_point	t_sl_point;
+typedef enum e_direction	t_direction;
 
 struct s_sl_point {
 	int x;

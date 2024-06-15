@@ -15,29 +15,27 @@
 
 void	sl_set_direction(t_sl_player *player, enum e_direction direction);
 
-void	sl_move_player(t_sl_this *sl, int x, int y)
+int	sl_move_player(t_sl_this *sl, t_sl_player *player, int x, int y)
 {
-	if (sl->player->aim_x != sl->player->now_x)
-		return ;
-	if (sl->player->aim_y != sl->player->now_y)
-		return ;
-	if (sl->player->x < x)
-		sl_set_direction(sl->player, RIGHT);
-	else if (sl->player->y < y)
-		sl_set_direction(sl->player, DOWN);
-	else if (sl->player->x > x)
-		sl_set_direction(sl->player, LEFT);
-	else if (sl->player->y > y)
-		sl_set_direction(sl->player, UP);
+	if (player->aim_x != player->now_x)
+		return (-1);
+	if (player->aim_y != player->now_y)
+		return (-1);
+	if (player->x < x)
+		sl_set_direction(player, RIGHT);
+	else if (player->y < y)
+		sl_set_direction(player, DOWN);
+	else if (player->x > x)
+		sl_set_direction(player, LEFT);
+	else if (player->y > y)
+		sl_set_direction(player, UP);
 	if (sl_detect_collision_map(sl->map, x, y) == true)
-		return ;
-	if (sl->move_count < INT_MAX)
-		sl->move_count += 1;
-	sl_print_move_counter(sl->move_count);
-	sl->player->x = x;
-	sl->player->y = y;
-	sl->player->aim_x = sl->player->x * sl->block_width;
-	sl->player->aim_y = sl->player->y * sl->block_height;
+		return (-1);
+	player->x = x;
+	player->y = y;
+	player->aim_x = player->x * sl->block_width;
+	player->aim_y = player->y * sl->block_height;
+	return (0);
 }
 
 void	sl_set_direction(t_sl_player *player, enum e_direction direction)
