@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 16:43:15 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 16:51:08 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_sl_this
 	int					block_width;
 	int					block_height;
 	int					item_count;
+	int					move_count;
 	t_sl_map			*map;
 	t_sl_player			*player;
 	char				*ber_filename;

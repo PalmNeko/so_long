@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 15:39:22 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:37:12 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	sl_load(t_sl_this *sl)
 
 int	sl_load_background(t_sl_this *this)
 {
+	t_mxw_image	*counter_header;
+
 	this->background = mxw_new_image(this->mxw,
 		this->block_width * this->map->width,
 		this->block_height * this->map->height);
@@ -45,6 +47,11 @@ int	sl_load_background(t_sl_this *this)
 		.your_param = this,
 		.f = put_on_block,
 	}});
+	counter_header = mxw_xpm_file_to_image(this->mxw, "textures/count_header.xpm");
+	if (counter_header == NULL)
+		return (-1);
+	mxw_put_image_to_image(this->background, counter_header, 0, 0);
+	mxw_destroy_image(counter_header);
 	return (0);
 }
 
