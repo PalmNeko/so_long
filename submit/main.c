@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/15 21:26:20 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 05:55:42 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
 	t_sl_this			ls_this;
 	int					result;
 	t_mxw_start_param	mxw_start_param;
 
 	sl_init_sl_this(&ls_this);
-	ls_this.ber_filename = "maps/sample2.ber";
+	if (argc != 2)
+		return (0);
+	ls_this.ber_filename = argv[1];
 	mxw_start_param = (t_mxw_start_param){
 		.setup = sl_setup,
 		.loop = sl_loop,
