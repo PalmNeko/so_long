@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 16:51:08 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:43:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_sl_this
 	t_mxw_image			*bg_block[MAX_BG_BLOCK];
 	t_mxw_image			*background;
 	t_mxw_image			*img_item;
+	t_mxw_image			*counter_header;
 	int					block_width;
 	int					block_height;
 	int					item_count;
