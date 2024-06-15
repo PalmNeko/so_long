@@ -67,6 +67,13 @@ static int					sl_load_players(t_sl_this *sl)
 		(int []){13, 3, 14, 3, 15, 3, 16, 3}}, 4);
 	if (sl->player == NULL)
 		return (-1);
+	sl->enemy = sl_new_player(sl, (int *[]){
+		(int []){60, 0, 61, 0, 62, 0, 63, 0},
+		(int []){60, 1, 61, 1, 62, 1, 63, 1},
+		(int []){60, 2, 61, 2, 62, 2, 63, 2},
+		(int []){60, 3, 61, 3, 62, 3, 63, 3}}, 4);
+	if (sl->enemy == NULL)
+		return (-1);
 	return (0);
 }
 

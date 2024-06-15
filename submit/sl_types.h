@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 21:29:19 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 02:50:38 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct s_sl_this
 	t_sl_point			camera_point;
 	t_sl_map			*map;
 	t_sl_player			*player;
+	t_sl_player			*enemy;
 	char				*ber_filename;
 	size_t				game_tick;
 	size_t				game_tick_reset_time;

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 17:19:58 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 22:52:37 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 02:53:18 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ void sl_draw_image(t_sl_this *sl)
 		mxw_get_image_from_flipbook(*sl->player->now_flipbook),
 		sl->player->now_x - sl->camera_point.x,
 		sl->player->now_y - sl->camera_point.y);
+	mxw_put_image_to_window(
+		sl->so_long_window,
+		mxw_get_image_from_flipbook(*sl->enemy->now_flipbook),
+		sl->enemy->now_x - sl->camera_point.x,
+		sl->enemy->now_y - sl->camera_point.y);
 	mxw_put_image_to_window(sl->so_long_window, sl->counter_header, 0, 0);
 }
 

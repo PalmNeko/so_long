@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 01:03:09 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 03:50:37 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	sl_setup(t_mxw *mxw, t_sl_this *sl)
 		sl, sl->player,
 		sl->map->player_point.x,
 		sl->map->player_point.y);
+	sl_teleport_random_player(sl, sl->enemy);
 	sl->camera_point.x = 0;
 	sl->camera_point.y = 0;
 	so_long_window = create_so_long_window(sl);
