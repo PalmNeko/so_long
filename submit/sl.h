@@ -6,12 +6,12 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/11 02:55:07 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 14:56:09 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SL_H
+# define SL_H
 
 # include <stdbool.h>
 # include "mxw_types.h"

@@ -6,12 +6,12 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/11 13:35:12 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 14:56:10 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SL_H
-# define SL_H
+#ifndef SL_TYPES_H
+# define SL_TYPES_H
 
 # include "sl_conf.h"
 # include "mxw.h"
