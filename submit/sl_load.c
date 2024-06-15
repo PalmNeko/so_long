@@ -6,14 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:15:53 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 17:44:00 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 19:37:42 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mxw.h"
 #include "sl.h"
 
-int			sl_load_background(t_sl_this *this);
+int			sl_load_background(t_sl_this *sl);
 static int	put_on_block(t_sl_this *sl, t_mxw_fip_param *param);
 
 int	sl_load(t_sl_this *sl)
@@ -28,25 +28,25 @@ int	sl_load(t_sl_this *sl)
 	return (0);
 }
 
-int	sl_load_background(t_sl_this *this)
+int	sl_load_background(t_sl_this *sl)
 {
-	this->background = mxw_new_image(this->mxw,
-		this->block_width * this->map->width,
-		this->block_height * this->map->height);
-	if (this->background == NULL)
+	sl->background = mxw_new_image(sl->mxw,
+		sl->block_width * sl->map->width,
+		sl->block_height * sl->map->height);
+	if (sl->background == NULL)
 		return (-1);
 	mxw_foreach_image((t_mxw_foreach_image_param []) {{
-		.image = this->background,
+		.image = sl->background,
 		.offset_x = 0,
 		.offset_y = 0,
-		.width = this->background->width,
-		.height = this->background->height,
+		.width = sl->background->width,
+		.height = sl->background->height,
 		.result = NULL,
-		.your_param = this,
+		.your_param = sl,
 		.f = put_on_block,
 	}});
-	this->counter_header = mxw_xpm_file_to_image(this->mxw, "textures/count_header.xpm");
-	if (this->counter_header == NULL)
+	sl->counter_header = mxw_xpm_file_to_image(sl->mxw, "textures/count_header.xpm");
+	if (sl->counter_header == NULL)
 		return (-1);
 	return (0);
 }
