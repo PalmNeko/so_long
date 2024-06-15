@@ -27,7 +27,11 @@ int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
 	sl->sprite_sheet = sl_load_sprite_sheet(mxw);
 	if (sl->sprite_sheet == NULL)
 		return (-1);
-	sl->player = sl_new_player(sl);
+	sl->player = sl_new_player(sl, (int *[]){
+		(int []){13, 0, 14, 0, 15, 0, 16, 0},
+		(int []){13, 1, 14, 1, 15, 1, 16, 1},
+		(int []){13, 2, 14, 2, 15, 2, 16, 2},
+		(int []){13, 3, 14, 3, 15, 3, 16, 3}}, 4);
 	if (sl->player == NULL)
 		return (-1);
 	index = 0;

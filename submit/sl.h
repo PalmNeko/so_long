@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 21:18:09 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/16 02:18:39 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			sl_loop(t_mxw *mxw, t_sl_this *sl);
 int			sl_setup(t_mxw *mxw, t_sl_this *sl);
 int	sl_destroy(t_sl_this *sl);
 
-t_sl_player	*sl_new_player(t_sl_this *sl);
+t_sl_player	*sl_new_player(t_sl_this *sl, int *points_xy[], int size);
 void		sl_destroy_player(t_sl_player *player);
 int			sl_load(t_sl_this *sl);
 void		sl_unload(t_sl_this *sl);
