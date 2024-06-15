@@ -13,6 +13,7 @@
 #include "mxw.h"
 #include "sl.h"
 
+static int					sl_load_image_item(t_sl_this *sl);
 static t_mxw_spritesheet	*sl_load_sprite_sheet(t_mxw *mxw);
 
 int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
@@ -44,6 +45,24 @@ int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
 		sl->bg_block[bg[index]] = tmp;
 		index++;
 	}
+	if (sl_load_image_item(sl) != 0)
+		return (-1);
+	return (0);
+}
+
+static int	sl_load_image_item(t_sl_this *sl)
+{
+	t_mxw_image	*tmp;
+	sl->img_item = mxw_xpm_file_to_image(sl->mxw, "textures/item.xpm");
+	if (sl->img_item == NULL)
+		return (-1);
+	tmp = mxw_resize_image(sl->mxw, sl->img_item,
+		sl->img_item->width * IMAGE_SCALE,
+		sl->img_item->height * IMAGE_SCALE);
+	mxw_destroy_image(sl->img_item);
+	if (tmp == NULL)
+		return (-1);
+	sl->img_item = tmp;
 	return (0);
 }
 

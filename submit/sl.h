@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 15:38:55 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 16:17:39 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdbool.h>
 # include "mxw_types.h"
+# include "sl_param.h"
 # include "sl_types.h"
 
 int			sl_keyboard_handler(int keycode, t_sl_this *vars);
@@ -39,5 +40,6 @@ void		sl_move_player(t_sl_this *sl, int x, int y);
 void		sl_update_player(t_sl_player *player, size_t game_tick);
 bool		sl_detect_collision_map(t_sl_map *map, int x, int y);
 int			sl_load_assets(t_mxw *mxw, t_sl_this *sl);
+void		*sl_foreach_map(t_sl_foreach_map_param *param);
 
 #endif

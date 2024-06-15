@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 15:02:54 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/15 15:43:18 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_sl_this
 	t_mxw_spritesheet	*sprite_sheet;
 	t_mxw_image			*bg_block[MAX_BG_BLOCK];
 	t_mxw_image			*background;
+	t_mxw_image			*img_item;
 	int					block_width;
 	int					block_height;
 	t_sl_map			*map;
