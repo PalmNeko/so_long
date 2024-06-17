@@ -16,11 +16,13 @@
 
 /**
  * @brief foreach ber_data
- * @param f is called about like f(t_sl_fb_param param, void *your_param);
+ * @param f is called about like:
+ * f(t_sl_fb_param param, void *your_param, void *result);
  * break loop if function f return not 0.
  * @return always NULL (for extension)
  */
-void	*sl_foreach_ber(char **ber_data, int (*f)(), void *your_param)
+void	*sl_foreach_ber(
+	char **ber_data, int (*f)(), void *your_param, void *result)
 {
 	int				x;
 	int				y;
@@ -35,7 +37,7 @@ void	*sl_foreach_ber(char **ber_data, int (*f)(), void *your_param)
 		while (ber_data[y][x] != '\0')
 		{
 			param.idx_x = x;
-			if (f(&param, your_param) != 0)
+			if (f(&param, your_param, result) != 0)
 				return (NULL);
 			x++;
 		}

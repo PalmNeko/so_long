@@ -56,7 +56,7 @@ uint32_t	sl_xorshift(uint32_t seed, uint32_t x);
 void		sl_move_enemy_wrap(t_sl_this *sl, t_sl_player *enemy);
 char		*sl_strerror(int sl_errno);
 void		sl_put_error(int sl_errno);
-void		*sl_foreach_ber(char **ber_data, int (*f)(), void *your_param);
+void		*sl_foreach_ber(char **ber_data, int (*f)(), void *your_param, void *result);
 bool		sl_validate_ber_map_width(char **ber_data);
 bool		sl_validate_ber_map_height(char **ber_data);
 bool		sl_validate_ber_map(char **ber_data);
