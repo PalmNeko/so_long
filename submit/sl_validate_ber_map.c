@@ -22,6 +22,8 @@ bool	sl_validate_ber_map(char **ber_data)
 		return (false);
 	if (sl_validate_ber_end_newline(ber_data) == false)
 		return (sl_put_error(SL_EMAP_MUST_END_NEWLINE), false);
+	if (sl_int_ber_chr_count(ber_data, 'P') == 0)
+		return (sl_put_error(SL_EMAP_MUST_INCLUDE_PLAYER), false);
 	return (true);
 }
 
@@ -46,6 +48,7 @@ bool	sl_validate_ber_map_size(char **ber_data)
 			sl_put_error(error_values[index]);
 			return (false);
 		}
+		index++;
 	}
 	return (true);
 }

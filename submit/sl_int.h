@@ -22,5 +22,6 @@ int				sl_int_assign_player_flipbook(
 					int size);
 t_mxw_flipbook	*sl_int_sprite_sheet_to_player_flipbook(
 					t_sl_this *sl, int *points, int size);
+int				sl_int_ber_chr_count(char **ber_data, char chr);
 
 #endif
