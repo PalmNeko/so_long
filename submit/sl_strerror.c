@@ -35,6 +35,8 @@ char	*sl_strerror(int sl_errno)
 		return "map must be included 'P' at least one.";
 	else if (sl_errno == SL_EMAP_MUST_INCLUDE_EXIT)
 		return "map must be included 'E' at least one.";
+	else if (sl_errno == SL_EMAP_MUST_END_NEWLINE)
+		return "map must be terminated newline.";
 	else
 		return NULL;
 }

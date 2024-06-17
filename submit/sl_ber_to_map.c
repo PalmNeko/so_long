@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:35:41 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 15:03:06 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/17 23:37:35 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_sl_map	*sl_ber_to_map(char **ber_data)
 	int			height;
 	int			width;
 
-	if (sl_validate_ber_map_size(ber_data) == false)
+	if (sl_validate_ber_map(ber_data) == false)
 		return (NULL);
 	height = sl_get_ber_height(ber_data);
 	width = sl_get_ber_width(ber_data);

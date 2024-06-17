@@ -20,6 +20,8 @@ bool	sl_validate_ber_map(char **ber_data)
 {
 	if (sl_validate_ber_map_size(ber_data) == false)
 		return (false);
+	if (sl_validate_ber_end_newline(ber_data) == false)
+		return (sl_put_error(SL_EMAP_MUST_END_NEWLINE), false);
 	return (true);
 }
 
