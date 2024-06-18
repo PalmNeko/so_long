@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:58:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/17 23:29:23 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/19 00:47:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ bool		sl_validate_ber_map(char **ber_data);
 bool		sl_validate_ber_end_newline(char **ber_data);
 bool		sl_validate_ber_map_surrounded(char **ber_data);
 int			sl_int_ber_chr_count(char **ber_data, char chr);
+bool		sl_validate_chr(char **ber_data);
 
 #endif

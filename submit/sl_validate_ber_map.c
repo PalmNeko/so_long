@@ -19,6 +19,8 @@ bool	sl_validate_ber_map_chr_count(char **ber_data);
 
 bool	sl_validate_ber_map(char **ber_data)
 {
+	if (sl_validate_chr(ber_data) == false)
+		return (sl_put_error(SL_EMAP_PARSE), false);
 	if (sl_validate_ber_map_size(ber_data) == false)
 		return (false);
 	if (sl_validate_ber_map_chr_count(ber_data) == false)
