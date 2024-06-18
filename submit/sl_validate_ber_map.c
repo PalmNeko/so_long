@@ -15,10 +15,13 @@
 #include "sl.h"
 
 bool	sl_validate_ber_map_size(char **ber_data);
+bool	sl_validate_ber_map_chr_count(char **ber_data);
 
 bool	sl_validate_ber_map(char **ber_data)
 {
 	if (sl_validate_ber_map_size(ber_data) == false)
+		return (false);
+	if (sl_validate_ber_map_chr_count(ber_data) == false)
 		return (false);
 	if (sl_validate_ber_end_newline(ber_data) == false)
 		return (sl_put_error(SL_EMAP_MUST_END_NEWLINE), false);
@@ -52,5 +55,24 @@ bool	sl_validate_ber_map_size(char **ber_data)
 		}
 		index++;
 	}
+	return (true);
+}
+
+bool	sl_validate_ber_map_chr_count(char **ber_data)
+{
+	if (sl_int_ber_chr_count(ber_data, 'P') >= 2)
+		return (sl_put_error(SL_EMAP_DUPLICATED_PLAYER), false);
+	if (sl_int_ber_chr_count(ber_data, 'E') >= 2)
+		return (sl_put_error(SL_EMAP_DUPLICATED_EXIT), false);
+	if (sl_int_ber_chr_count(ber_data, 'P') == 0)
+		return (sl_put_error(SL_EMAP_MUST_INCLUDE_PLAYER), false);
+	if (sl_int_ber_chr_count(ber_data, '1') == 0)
+		return (sl_put_error(SL_EMAP_MUST_INCLUDE_WALL), false);
+	if (sl_int_ber_chr_count(ber_data, 'C') == 0)
+		return (sl_put_error(SL_EMAP_MUST_INCLUDE_COLLECTIBLE), false);
+	if (sl_int_ber_chr_count(ber_data, '0') == 0)
+		return (sl_put_error(SL_EMAP_MUST_INCLUDE_FREESPACE), false);
+	if (sl_int_ber_chr_count(ber_data, 'E') == 0)
+		return (sl_put_error(SL_EMAP_MUST_INCLUDE_EXIT), false);
 	return (true);
 }
