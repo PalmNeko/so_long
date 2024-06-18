@@ -1,14 +1,14 @@
 
 NAME        = so_long
 SRCDIR      = .
-SRCS        = $(shell find $(SRCDIR) -name "*.c" -type f -not -path "*/libft/*.c" | xargs)
+SRCS        = $(shell find $(SRCDIR) -name "*.c" -type f -not -path "*/libft/*.c" -not -path "*/minilibx/*.c" | xargs)
 OBJS        = $(SRCS:%.c=%.o)
 DEPENDS     = $(OBJS:.o=.d)
 LIBFT		= libft
 CFLAGS      = -Wall -Wextra -Werror -MMD -MP -I libft -O3
-LOADLIBES	= -L libft
+LOADLIBES	= -L libft -L minilibx
 ifeq ($(shell uname),Linux)
-	CFLAGS += -I /usr/include
+	CFLAGS += -I minilibx
 	LDLIBS  = -lmlx_Linux -lft -lXext -lX11 -lm
 else
 	LDLIBS  = -lmlx -lmlx -lft -framework OpenGL -framework AppKit
@@ -18,7 +18,7 @@ all: $(NAME)
 
 -include $(DEPENDS)
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): minilibx $(LIBFT) $(OBJS)
 	$(LINK.o) $(OBJS) $(LOADLIBES) $(LDLIBS) -o $@
 
 clean:
@@ -44,8 +44,13 @@ show:
 	@printf "SRCS		:\n	$(SRCS)\n"
 	@printf "OBJS		:\n	$(OBJS)\n"
 
-debug: CFLAGS += -g -O0 -fsanitize=leak -fstack-protector-all -ftrapv -fanalyzer
+debug: CFLAGS += -g -O0 -fsanitize=leak
 debug: re
+
+minilibx:
+	git clone https://github.com/42Paris/minilibx-linux.git $@
+	cd $@
+	make
 
 .PHONY: all
 
