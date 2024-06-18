@@ -8,7 +8,7 @@ LIBFT		= libft
 CFLAGS      = -Wall -Wextra -Werror -MMD -MP -I libft -O3
 LOADLIBES	= -L libft -L minilibx
 ifeq ($(shell uname),Linux)
-	CFLAGS += -I minilibx
+	CFLAGS += -isystem minilibx
 	LDLIBS  = -lmlx_Linux -lft -lXext -lX11 -lm
 else
 	LDLIBS  = -lmlx -lmlx -lft -framework OpenGL -framework AppKit
@@ -49,7 +49,7 @@ debug: re
 
 minilibx:
 	git clone https://github.com/42Paris/minilibx-linux.git $@
-	cd $@
+	cd $@ && \
 	make
 
 .PHONY: all
