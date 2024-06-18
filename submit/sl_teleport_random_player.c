@@ -50,6 +50,10 @@ int _sl_teleport_random_player(t_sl_this *sl, t_sl_player *player)
 	int					index;
 
 	seed = (unsigned int)((uintptr_t)sl->map & 0xFFFFFFFF);
+	while (seed % 2 == 0 && seed != 0)
+		seed /= 2;
+	while (seed % 3 == 0 && seed != 0)
+		seed /= 3;
 	index = 0;
 	while (index < 1000)
 	{
