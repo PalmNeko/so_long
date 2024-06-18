@@ -39,6 +39,8 @@ int	_sl_validate_ber_map_surrounded(t_sl_fb_param *param, void *p, bool *validat
 	ber_data = param->ber_data;
 	x = param->idx_x;
 	y = param->idx_y;
+	if (ber_data[y][x] == '\n' && ber_data[y][x + 1] == '\0')
+		return (0);
 	if (y == 0 || ber_data[y + 1] == NULL || x == 0 || ber_data[y][x + 1] == '\n')
 	{
 		if (ber_data[y][x] != '1')
