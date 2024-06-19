@@ -6,12 +6,13 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:13:50 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 04:50:33 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:54:22 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mxw_types.h"
 #include "sl.h"
+#include <stdlib.h>
 #include <mlx.h>
 
 bool	is_gameend(t_sl_this *sl)
