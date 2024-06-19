@@ -36,10 +36,12 @@ t_sl_map	*sl_ber_to_map(char **ber_data)
 	if (height < 0 || width < 0)
 		return (NULL);
 	map = (t_sl_map *)malloc(sizeof(t_sl_map));
-	map->fields = (t_sl_block_type **)ft_calloc(
-		height, sizeof(t_sl_block_type *));
 	if (map == NULL)
 		return (NULL);
+	map->fields = (t_sl_block_type **)ft_calloc(
+			height, sizeof(t_sl_block_type *));
+	if (map->fields == NULL)
+		return (free(map), NULL);
 	map->height = height;
 	map->width = width;
 	index = 0;
