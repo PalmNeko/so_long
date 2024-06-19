@@ -63,6 +63,6 @@ bool		sl_validate_ber_map(char **ber_data);
 bool		sl_validate_ber_end_newline(char **ber_data);
 bool		sl_validate_ber_map_surrounded(char **ber_data);
 int			sl_int_ber_chr_count(char **ber_data, char chr);
-bool		sl_validate_chr(char **ber_data);
+bool		sl_validate_ber_chr(char **ber_data, char *sets);
 
 #endif
