@@ -17,6 +17,7 @@
 void	sl_move_enemy_wrap(t_sl_this *sl, t_sl_player *enemy)
 {
 	int	result;
+
 	if (sl->game_tick % 300 != 0)
 		return ;
 	result = -1;

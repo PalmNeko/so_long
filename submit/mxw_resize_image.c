@@ -12,10 +12,10 @@
 
 #include "mxw.h"
 
-int put_pixel_for_resize(t_mxw_image *new_image, t_mxw_fip_param *param);
+int	put_pixel_for_resize(t_mxw_image *new_image, t_mxw_fip_param *param);
 
 t_mxw_image	*mxw_resize_image(
-	t_mxw *mxw, t_mxw_image *base_image,int width, int height)
+	t_mxw *mxw, t_mxw_image *base_image, int width, int height)
 {
 	t_mxw_image	*new_image;
 
@@ -28,15 +28,15 @@ t_mxw_image	*mxw_resize_image(
 		.image = new_image,
 		.offset_x = 0,
 		.offset_y = 0,
-		.result	= NULL,
+		.result = NULL,
 		.width = new_image->width,
 		.your_param = base_image}});
 	return (new_image);
 }
 
-int put_pixel_for_resize(t_mxw_image *base_image, t_mxw_fip_param *param)
+int	put_pixel_for_resize(t_mxw_image *base_image, t_mxw_fip_param *param)
 {
-	int x;
+	int	x;
 	int	y;
 	int	color;
 

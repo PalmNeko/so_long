@@ -24,11 +24,10 @@ void	*sl_foreach_map(t_sl_foreach_map_param *param)
 		while (x < param->map->width)
 		{
 			param->f(param->your_param, (t_sl_fmp_param []){{
-				.index_x = x,
-				.index_y = y,
-				.map = param->map,
-				.result = param->result,
-			}});
+					.index_x = x,
+					.index_y = y,
+					.map = param->map,
+					.result = param->result,}});
 			x++;
 		}
 		y++;

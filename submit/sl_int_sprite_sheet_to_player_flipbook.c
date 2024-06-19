@@ -20,8 +20,8 @@ void	free_images(t_mxw_image **images, size_t size);
 /**
  * @param points spritesheet points {x1, y1, x2, y2, .... xn, yn}
  */
-t_mxw_flipbook *sl_int_sprite_sheet_to_player_flipbook(
-	t_sl_this *sl, int *points, int size)
+t_mxw_flipbook	*sl_int_sprite_sheet_to_player_flipbook(
+	t_sl_this	*sl, int *points, int size)
 {
 	t_mxw_image		**images;
 	t_mxw_flipbook	*flipbook;
@@ -34,7 +34,10 @@ t_mxw_flipbook *sl_int_sprite_sheet_to_player_flipbook(
 	while (index < size)
 	{
 		images[index] = sl_cut_spritesheet(
-			sl->mxw, sl->sprite_sheet, points[index * 2], points[index * 2 + 1]);
+				sl->mxw,
+				sl->sprite_sheet,
+				points[index * 2],
+				points[index * 2 + 1]);
 		if (images[index] == NULL)
 			return (free_images(images, index), NULL);
 		index++;

@@ -13,10 +13,11 @@
 #include "sl.h"
 #include <limits.h>
 
-void	sl_move_player_wrap(t_sl_this *sl, t_sl_player *player, t_direction direct)
+void	sl_move_player_wrap(
+			t_sl_this *sl, t_sl_player *player, t_direction direct)
 {
 	int	x;
-	int y;
+	int	y;
 
 	x = sl->player->x;
 	y = sl->player->y;

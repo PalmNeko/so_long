@@ -18,7 +18,7 @@
 
 typedef struct s_sl_foreach_map_param	t_sl_foreach_map_param;
 typedef struct s_sl_fmp_param			t_sl_fmp_param;
-typedef struct s_sl_fb_param 			t_sl_fb_param;
+typedef struct s_sl_fb_param			t_sl_fb_param;
 
 struct s_sl_foreach_map_param {
 	t_sl_map	*map;

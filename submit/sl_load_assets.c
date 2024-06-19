@@ -20,19 +20,23 @@ static t_mxw_spritesheet	*sl_load_sprite_sheet(t_mxw *mxw);
 int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
 {
 	size_t			index;
-	t_sl_background	bg[] = {BG_WALL, BG_ROAD, BG_GRASS, BG_GOAL};
-	int				x[] = {0, 9, 10, 6};
-	int				y[] = {14, 16, 15, 11};
+	t_sl_background	*bg;
+	int				*x;
+	int				*y;
 
+	bg = (t_sl_background [4]){BG_WALL, BG_ROAD, BG_GRASS, BG_GOAL};
+	x = (int [4]){0, 9, 10, 6};
+	y = (int [4]){14, 16, 15, 11};
 	sl->sprite_sheet = sl_load_sprite_sheet(mxw);
 	if (sl->sprite_sheet == NULL)
 		return (-1);
 	if (sl_load_players(sl) != 0)
 		return (-1);
 	index = 0;
-	while (index < (sizeof(bg) / sizeof(bg[0])))
+	while (index < 4)
 	{
-		sl->bg_block[bg[index]] = sl_cut_spritesheet(mxw, sl->sprite_sheet, x[index], y[index]);
+		sl->bg_block[bg[index]] = sl_cut_spritesheet(
+				mxw, sl->sprite_sheet, x[index], y[index]);
 		if (sl->bg_block[bg[index]] == NULL)
 			return (-1);
 		index++;
@@ -45,12 +49,13 @@ int	sl_load_assets(t_mxw *mxw, t_sl_this *sl)
 static int	sl_load_image_item(t_sl_this *sl)
 {
 	t_mxw_image	*tmp;
+
 	sl->img_item = mxw_xpm_file_to_image(sl->mxw, "textures/item.xpm");
 	if (sl->img_item == NULL)
 		return (-1);
 	tmp = mxw_resize_image(sl->mxw, sl->img_item,
-		sl->img_item->width * IMAGE_SCALE,
-		sl->img_item->height * IMAGE_SCALE);
+			sl->img_item->width * IMAGE_SCALE,
+			sl->img_item->height * IMAGE_SCALE);
 	mxw_destroy_image(sl->img_item);
 	if (tmp == NULL)
 		return (-1);
@@ -58,20 +63,20 @@ static int	sl_load_image_item(t_sl_this *sl)
 	return (0);
 }
 
-static int					sl_load_players(t_sl_this *sl)
+static int	sl_load_players(t_sl_this *sl)
 {
 	sl->player = sl_new_player(sl, (int *[]){
-		(int []){13, 0, 14, 0, 15, 0, 16, 0},
-		(int []){13, 1, 14, 1, 15, 1, 16, 1},
-		(int []){13, 2, 14, 2, 15, 2, 16, 2},
-		(int []){13, 3, 14, 3, 15, 3, 16, 3}}, 4);
+			(int []){13, 0, 14, 0, 15, 0, 16, 0},
+			(int []){13, 1, 14, 1, 15, 1, 16, 1},
+			(int []){13, 2, 14, 2, 15, 2, 16, 2},
+			(int []){13, 3, 14, 3, 15, 3, 16, 3}}, 4);
 	if (sl->player == NULL)
 		return (-1);
 	sl->enemy = sl_new_player(sl, (int *[]){
-		(int []){60, 0, 61, 0, 62, 0, 63, 0},
-		(int []){60, 1, 61, 1, 62, 1, 63, 1},
-		(int []){60, 2, 61, 2, 62, 2, 63, 2},
-		(int []){60, 3, 61, 3, 62, 3, 63, 3}}, 4);
+			(int []){60, 0, 61, 0, 62, 0, 63, 0},
+			(int []){60, 1, 61, 1, 62, 1, 63, 1},
+			(int []){60, 2, 61, 2, 62, 2, 63, 2},
+			(int []){60, 3, 61, 3, 62, 3, 63, 3}}, 4);
 	if (sl->enemy == NULL)
 		return (-1);
 	return (0);

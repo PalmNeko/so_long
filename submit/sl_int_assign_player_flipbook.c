@@ -26,7 +26,7 @@ int	sl_int_assign_player_flipbook(
 	while (index < 4)
 	{
 		*flipbooks[index] = sl_int_sprite_sheet_to_player_flipbook(
-			sl, points_xy[index], size);
+				sl, points_xy[index], size);
 		if (*flipbooks[index] == NULL)
 		{
 			while (index >= 0)

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:35:41 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/19 14:37:45 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:43:03 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include <stdlib.h>
 #include "sl.h"
 
-static t_sl_block_type	*sl_ber_line_to_block(
-	char *ber_line, const int width);
+static t_sl_block_type	*sl_ber_line_to_block(char *ber_line, const int width);
 static t_sl_block_type	sl_ber_chr_to_block(char ber_chr);
+static int				sl_set_ber_fields(char **ber_data, t_sl_map *map);
 
 /**
  * @param ber_data NULL terminated string array.
@@ -25,7 +25,6 @@ static t_sl_block_type	sl_ber_chr_to_block(char ber_chr);
 t_sl_map	*sl_ber_to_map(char **ber_data)
 {
 	t_sl_map	*map;
-	int			index;
 	int			height;
 	int			width;
 
@@ -44,15 +43,8 @@ t_sl_map	*sl_ber_to_map(char **ber_data)
 		return (free(map), NULL);
 	map->height = height;
 	map->width = width;
-	index = 0;
-	while (index < map->height)
-	{
-		map->fields[index] = sl_ber_line_to_block(
-			ber_data[index], map->width);
-		if (map->fields[index] == NULL)
-			return (sl_destroy_map(map), NULL);
-		index++;
-	}
+	if (sl_set_ber_fields(ber_data, map) != 0)
+		return (sl_destroy_map(map), NULL);
 	map->player_point = sl_get_char_point(ber_data, PLAYER_CHARACTER);
 	map->goal_point = sl_get_char_point(ber_data, GOAL_CHARACTER);
 	return (map);
@@ -92,4 +84,19 @@ static t_sl_block_type	sl_ber_chr_to_block(char ber_chr)
 		return (PLAYER);
 	else
 		return (NONE);
+}
+
+static int	sl_set_ber_fields(char **ber_data, t_sl_map *map)
+{
+	int	index;
+
+	index = 0;
+	while (index < map->height)
+	{
+		map->fields[index] = sl_ber_line_to_block(ber_data[index], map->width);
+		if (map->fields[index] == NULL)
+			return (-1);
+		index++;
+	}
+	return (0);
 }

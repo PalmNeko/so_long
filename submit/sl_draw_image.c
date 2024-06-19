@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 17:19:58 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 02:53:18 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:44:50 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sl_draw_map(t_sl_this *sl);
 int		draw_objects(t_sl_this *sl, t_sl_fmp_param *param);
 void	update_camera(t_sl_this *sl);
 
-void sl_draw_image(t_sl_this *sl)
+void	sl_draw_image(t_sl_this *sl)
 {
 	update_camera(sl);
 	sl_draw_map(sl);
@@ -35,7 +35,11 @@ void sl_draw_image(t_sl_this *sl)
 
 void	sl_draw_map(t_sl_this *sl)
 {
-	mxw_put_image_to_window(sl->so_long_window, sl->background, - sl->camera_point.x, - sl->camera_point.y);
+	mxw_put_image_to_window(
+		sl->so_long_window,
+		sl->background,
+		-sl->camera_point.x,
+		-sl->camera_point.y);
 	sl_foreach_map((t_sl_foreach_map_param []){{
 		.f = draw_objects,
 		.map = sl->map,
@@ -65,7 +69,7 @@ int	draw_objects(t_sl_this *sl, t_sl_fmp_param *param)
 void	update_camera(t_sl_this *sl)
 {
 	int	max_x;
-	int max_y;
+	int	max_y;
 
 	sl->camera_point.x = sl->player->now_x - (sl->so_long_window->width / 2);
 	sl->camera_point.y = sl->player->now_y - (sl->so_long_window->height / 2);

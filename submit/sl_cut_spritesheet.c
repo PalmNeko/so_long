@@ -23,7 +23,7 @@ t_mxw_image	*sl_cut_spritesheet(
 	if (tmp == NULL)
 		return (NULL);
 	resized = mxw_resize_image(
-		mxw, tmp, tmp->width * IMAGE_SCALE, tmp->height * IMAGE_SCALE);
+			mxw, tmp, tmp->width * IMAGE_SCALE, tmp->height * IMAGE_SCALE);
 	mxw_destroy_image(tmp);
 	return (resized);
 }

@@ -14,8 +14,8 @@
 #include <stdbool.h>
 #include "sl.h"
 
-
-int	_sl_validate_ber_end_newline(t_sl_fb_param *param, void *p, bool *validate_result);
+int	_sl_validate_ber_end_newline(
+		t_sl_fb_param *param, void *p, bool *validate_result);
 
 bool	sl_validate_ber_end_newline(char **ber_data)
 {
@@ -30,7 +30,8 @@ bool	sl_validate_ber_end_newline(char **ber_data)
 	return (validate_result);
 }
 
-int	_sl_validate_ber_end_newline(t_sl_fb_param *param, void *p, bool *validate_result)
+int	_sl_validate_ber_end_newline(
+		t_sl_fb_param *param, void *p, bool *validate_result)
 {
 	int		x;
 	int		y;

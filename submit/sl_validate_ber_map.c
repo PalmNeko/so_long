@@ -38,14 +38,13 @@ bool	sl_validate_ber_map(char **ber_data)
 
 bool	sl_validate_ber_map_size(char **ber_data)
 {
-	bool 	(*const validate_functions[])(char **) = {
-		sl_validate_ber_map_width,
-		sl_validate_ber_map_height
-	};
 	int		*error_values;
 	size_t	index;
 
-	error_values = (int []) {
+	bool (*const validate_functions[])(char **) = {
+	sl_validate_ber_map_width,
+	sl_validate_ber_map_height};
+	error_values = (int []){
 		SL_EMAP_WIDTH,
 		SL_ENONE,
 	};

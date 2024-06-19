@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:09:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 04:20:36 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/19 17:01:16 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 
 typedef struct s_sl_player		t_sl_player;
 typedef enum e_sl_block_type	t_sl_block_type;
-typedef struct s_sl_map		t_sl_map;
-typedef enum s_sl_background	t_sl_background;
-typedef struct s_sl_point	t_sl_point;
-typedef enum e_direction	t_direction;
+typedef struct s_sl_map			t_sl_map;
+typedef enum e_sl_background	t_sl_background;
+typedef struct s_sl_point		t_sl_point;
+typedef enum e_direction		t_direction;
 
 struct s_sl_point {
-	int x;
-	int y;
+	int	x;
+	int	y;
 };
 
 struct s_sl_map {
@@ -46,7 +46,7 @@ enum e_sl_block_type {
 	ITEM,
 };
 
-enum s_sl_background
+enum e_sl_background
 {
 	BG_NONE,
 	BG_WALL,

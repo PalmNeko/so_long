@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 12:25:28 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 02:18:12 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:55:38 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 #include "sl_int.h"
 #include "libft.h"
 
-t_mxw_flipbook *sprite_sheet_to_player_flipbook(t_sl_this *sl, int *points, int size);
-void	free_images(t_mxw_image **images, size_t size);
-int		sl_assign_player_flipbook(t_sl_player *player, t_sl_this *sl);
+t_mxw_flipbook	*sprite_sheet_to_player_flipbook(
+					t_sl_this *sl, int *points, int size);
+void			free_images(t_mxw_image **images, size_t size);
+int				sl_assign_player_flipbook(t_sl_player *player, t_sl_this *sl);
 
 t_sl_player	*sl_new_player(t_sl_this *sl, int *points_xy[], int size)
 {
-	t_sl_player *player;
+	t_sl_player	*player;
 
 	player = (t_sl_player *)malloc(sizeof(t_sl_player));
 	if (player == NULL)

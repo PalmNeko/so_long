@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:13:50 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/19 15:54:22 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:54:00 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ bool	is_gameend(t_sl_this *sl)
 	goal_point = &sl->map->goal_point;
 	return (sl_detect_collision_enemy(sl->player, sl->enemy)
 		|| (sl->max_item_count == sl->item_count
-		&& goal_point->x * sl->block_width == sl->player->now_x
-		&& goal_point->y * sl->block_height == sl->player->now_y));
+			&& goal_point->x * sl->block_width == sl->player->now_x
+			&& goal_point->y * sl->block_height == sl->player->now_y));
 }
 
 void	put_move_count_text(t_sl_this *sl)

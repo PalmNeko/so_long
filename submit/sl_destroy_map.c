@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 15:49:23 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:51:36 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:43:28 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	sl_destroy_map(t_sl_map *map)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	while (index < map->height)

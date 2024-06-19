@@ -15,7 +15,8 @@
 #include "sl.h"
 #include "libft.h"
 
-int	_sl_validate_ber_chr(t_sl_fb_param *param, char *sets, bool *validate_result);
+int	_sl_validate_ber_chr(
+		t_sl_fb_param *param, char *sets, bool *validate_result);
 
 bool	sl_validate_ber_chr(char **ber_data, char *sets)
 {
@@ -30,7 +31,8 @@ bool	sl_validate_ber_chr(char **ber_data, char *sets)
 	return (validate_result);
 }
 
-int	_sl_validate_ber_chr(t_sl_fb_param *param, char *sets, bool *validate_result)
+int	_sl_validate_ber_chr(
+		t_sl_fb_param *param, char *sets, bool *validate_result)
 {
 	int		x;
 	int		y;

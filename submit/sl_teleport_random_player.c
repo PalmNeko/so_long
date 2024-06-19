@@ -13,10 +13,9 @@
 #include "sl.h"
 #include <stdint.h>
 
-int 				_sl_teleport_random_player(
-						t_sl_this *sl, t_sl_player *player);
+int	_sl_teleport_random_player(t_sl_this *sl, t_sl_player *player);
 
-void sl_teleport_random_player(t_sl_this *sl, t_sl_player *player)
+void	sl_teleport_random_player(t_sl_this *sl, t_sl_player *player)
 {
 	int		x;
 	int		y;
@@ -41,7 +40,7 @@ void sl_teleport_random_player(t_sl_this *sl, t_sl_player *player)
 	return ;
 }
 
-int _sl_teleport_random_player(t_sl_this *sl, t_sl_player *player)
+int	_sl_teleport_random_player(t_sl_this *sl, t_sl_player *player)
 {
 	unsigned int		seed;
 	static unsigned int	cnt;
@@ -57,10 +56,8 @@ int _sl_teleport_random_player(t_sl_this *sl, t_sl_player *player)
 	index = 0;
 	while (index < 1000)
 	{
-		cnt++;
-		x = sl_xorshift(seed, cnt) % sl->map->width;
-		cnt++;
-		y = sl_xorshift(seed, cnt) % sl->map->height;
+		x = sl_xorshift(seed, ++cnt) % sl->map->width;
+		y = sl_xorshift(seed, ++cnt) % sl->map->height;
 		if (sl->map->fields[y][x] != WALL)
 		{
 			sl_teleport_player(sl, player, x, y);

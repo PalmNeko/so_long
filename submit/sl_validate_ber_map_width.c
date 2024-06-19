@@ -12,6 +12,7 @@
 
 #include <stdbool.h>
 #include "sl.h"
+
 bool	sl_validate_ber_map_width(char **ber_data)
 {
 	int		field_width;
