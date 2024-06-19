@@ -25,6 +25,8 @@ bool	sl_validate_ber_map(char **ber_data)
 		return (false);
 	if (sl_validate_ber_map_chr_count(ber_data) == false)
 		return (false);
+	if (sl_validate_ber_reachable(ber_data) == false)
+		return (sl_put_error(SL_EMAP_CANT_REACH), false);
 	if (sl_validate_ber_end_newline(ber_data) == false)
 		return (sl_put_error(SL_EMAP_MUST_END_NEWLINE), false);
 	if (sl_int_ber_chr_count(ber_data, 'P') == 0)

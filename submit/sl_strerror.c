@@ -37,6 +37,8 @@ char	*sl_strerror(int sl_errno)
 		return "map must be included 'E' at least one.";
 	else if (sl_errno == SL_EMAP_MUST_END_NEWLINE)
 		return "map must be terminated newline.";
+	else if (sl_errno == SL_EMAP_CANT_REACH)
+		return "player cant reach exit or every collectible.";
 	else
 		return NULL;
 }
