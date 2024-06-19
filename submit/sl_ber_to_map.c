@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:35:41 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/17 23:37:35 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:37:45 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 static t_sl_block_type	*sl_ber_line_to_block(
 	char *ber_line, const int width);
 static t_sl_block_type	sl_ber_chr_to_block(char ber_chr);
-static t_sl_point		sl_get_char_point(char **ber_data, char c);
 
 /**
  * @param ber_data NULL terminated string array.
@@ -91,24 +90,4 @@ static t_sl_block_type	sl_ber_chr_to_block(char ber_chr)
 		return (PLAYER);
 	else
 		return (NONE);
-}
-
-static t_sl_point	sl_get_char_point(char **ber_data, char c)
-{
-	int	y;
-	int	x;
-
-	y = 0;
-	while (ber_data[y] != NULL)
-	{
-		x = 0;
-		while (ber_data[y][x] != '\0')
-		{
-			if (ber_data[y][x] == c)
-				return ((t_sl_point){.x = x, .y = y});
-			x++;
-		}
-		y++;
-	}
-	return ((t_sl_point){.x = 0, .y = 0});
 }
