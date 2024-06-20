@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mxw_param.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 22:42:01 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 23:04:47 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 04:39:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ typedef struct s_mxw_start_param	t_mxw_start_param;
  * 	loop(mxw, loop_args);
  * 	destroy(destroy_args);
 */
-struct s_mxw_start_param {
+struct s_mxw_start_param
+{
 	int		(*setup)();
 	int		(*loop)();
 	int		(*destroy)();
@@ -32,7 +33,8 @@ struct s_mxw_start_param {
 	void	*destroy_args;
 };
 
-typedef struct s_mxw_cut_image_param {
+typedef struct s_mxw_cut_image_param
+{
 	t_mxw		*mxw;
 	t_mxw_image	*image;
 	int			x;
