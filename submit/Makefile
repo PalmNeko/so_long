@@ -7,6 +7,7 @@ DEPENDS     = $(OBJS:.o=.d)
 LIBFT		= libft
 CFLAGS      = -Wall -Wextra -Werror -MMD -MP -I libft -O3
 LOADLIBES	= -L libft -L minilibx
+
 ifeq ($(shell uname),Linux)
 	CFLAGS += -isystem minilibx
 	LDLIBS  = -lmlx_Linux -lft -lXext -lX11 -lm
@@ -16,11 +17,6 @@ endif
 
 all: $(NAME)
 
--include $(DEPENDS)
-
-$(NAME): minilibx $(LIBFT) $(OBJS)
-	$(LINK.o) $(OBJS) $(LOADLIBES) $(LDLIBS) -o $@
-
 clean:
 	rm -f $(OBJS) $(DEPENDS)
 	rm -rf $(MLX_DIR)
@@ -29,12 +25,6 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-bonus: CFLAGS += -D BONUS
-bonus: $(LIBFT) $(OBJS)
-	$(LINK.o) $(OBJS) $(LOADLIBES) $(LDLIBS) -o $@
-
--include .development.mk
 
 show:
 	@printf "NAME  		: $(NAME)\n"
@@ -47,14 +37,12 @@ show:
 debug: CFLAGS += -g -O0 -fsanitize=leak
 debug: re
 
-minilibx:
-	git clone https://github.com/42Paris/minilibx-linux.git $@
-	cd $@ && \
-	make
-
 .PHONY: all
 
 ### installing
+
+$(NAME): minilibx $(LIBFT) $(OBJS)
+	$(LINK.o) $(OBJS) $(LOADLIBES) $(LDLIBS) -o $@
 
 $(LIBFT):
 	rm -rf tmp_Libft
@@ -62,3 +50,15 @@ $(LIBFT):
 	cp -r tmp_Libft/submit $(LIBFT)
 	rm -rf tmp_Libft
 	make -C $(LIBFT)
+
+minilibx:
+	git clone https://github.com/42Paris/minilibx-linux.git $@
+	cd $@ && \
+	make
+
+bonus: CFLAGS += -D BONUS
+bonus: $(LIBFT) $(OBJS)
+	$(LINK.o) $(OBJS) $(LOADLIBES) $(LDLIBS) -o $@
+
+-include .development.mk
+-include $(DEPENDS)
