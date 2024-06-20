@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:32:30 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/21 03:17:20 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 04:20:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "sl.h"
 #include "libft.h"
 #include "get_next_line.h"
+#include "sl_errors.h"
 
 t_list	*create_ber_list_fd(int fd);
 
@@ -26,9 +27,12 @@ t_sl_map	*sl_ber_fd_to_map(int fd)
 	size_t		size;
 	t_sl_map	*map;
 
+	errno = 0;
 	ber_list = create_ber_list_fd(fd);
-	if (ber_list == NULL)
+	if (errno != 0)
 		return (NULL);
+	else if (ber_list == NULL)
+		return (sl_put_error(SL_EMAP_EMTPY), NULL);
 	tmp = ft_lstnew(NULL);
 	if (tmp == NULL)
 		return (ft_lstclear(&ber_list, free), NULL);

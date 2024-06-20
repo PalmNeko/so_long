@@ -31,6 +31,8 @@ char	*sl_strerror(int sl_errno)
 		return ("map must be terminated newline.");
 	else if (sl_errno == SL_EMAP_CANT_REACH)
 		return ("player cant reach exit or every collectible.");
+	else if (sl_errno == SL_EMAP_EMTPY)
+		return ("must not be empty.");
 	else
 		return (sl_strerror_must_include(sl_errno));
 }
