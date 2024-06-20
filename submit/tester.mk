@@ -18,7 +18,7 @@ LDFLAGS		+= \
 
 ifeq ($(shell uname),Linux)
 	CFLAGS += -isystem minilibx
-	LDLIBS  = -lcident -lmlx_Linux -lft -lXext -lX11 -lm
+	LDLIBS  = -lmlx_Linux -lft -lXext -lX11 -lm -lcident
 else
 	LDLIBS  = -lmlx -lmlx -lft -framework OpenGL -framework AppKit
 endif
