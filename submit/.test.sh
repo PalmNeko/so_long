@@ -1,15 +1,18 @@
 #!/bin/bash
 
-if [ "$SHELL" ~= "bash" ]; then
+if [ -z "$BASH_VERSION" ]; then
 	echo 'please use bash'
 	exit 1
 fi
 
 make -f tester.mk
 
-export IS_DEBUG=""
+# export IS_DEBUG=""
+unset IS_DEBUG
 export ERROR_COUNT_DOWN=""
-for i in {1..300}; do
+TIMES=$(echo {1..375} | sed 's/ 2 / /g')
+# 2 is mlx error
+for i in $TIMES; do
 
 	ERROR_COUNT_DOWN="$i"
 	export ERROR_COUNT_DOWN
