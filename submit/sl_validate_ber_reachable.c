@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_validate_ber_reachable.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 17:06:55 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/19 17:07:30 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 03:20:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	sl_validate_ber_reachable(char **ber_data)
 
 	cloned_ber_data = sl_clone_ber_data(ber_data);
 	if (cloned_ber_data == NULL)
-		return (NULL);
+		return (false);
 	player_pos = sl_get_char_point(ber_data, 'P');
 	sl_fill_road(cloned_ber_data, player_pos, '1');
 	is_reachable = sl_validate_ber_chr(cloned_ber_data, "10");
@@ -73,7 +73,7 @@ char	**sl_clone_ber_data(char **ber_data)
 		cloned[index] = ft_strdup(ber_data[index]);
 		if (cloned[index] == NULL)
 		{
-			sl_destroy_ber_data(ber_data);
+			sl_destroy_ber_data(cloned);
 			return (NULL);
 		}
 		index++;

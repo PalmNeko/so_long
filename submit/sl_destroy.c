@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_destroy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 23:01:41 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/15 19:37:00 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 04:07:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@
 int	sl_destroy(t_sl_this *sl)
 {
 	sl_unload(sl);
-	printf("%s\n", "destroy");
 	return (0);
 }

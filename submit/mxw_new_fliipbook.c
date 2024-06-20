@@ -25,6 +25,8 @@ t_mxw_flipbook	*mxw_new_flipbook(t_mxw *mxw, t_mxw_image **images, int size)
 	if (flip_book == NULL)
 		return (NULL);
 	cloned_images = __clone_images(mxw, images, size);
+	if (cloned_images == NULL)
+		return (free(flip_book), NULL);
 	flip_book->flip_book = cloned_images;
 	flip_book->size = size;
 	flip_book->iter = 0;
@@ -52,6 +54,7 @@ static t_mxw_image	**__clone_images(
 				index--;
 			}
 			mxw_destroy_image(cloned_images[index]);
+			free(cloned_images);
 			return (NULL);
 		}
 		index++;

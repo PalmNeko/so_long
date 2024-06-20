@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   sl_ber_fd_to_map.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:32:30 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:39:04 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 03:17:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <errno.h>
 #include "sl.h"
 #include "libft.h"
 #include "get_next_line.h"
@@ -50,6 +51,7 @@ t_list	*create_ber_list_fd(int fd)
 
 	root = NULL;
 	iter = root;
+	errno = 0;
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
@@ -62,5 +64,7 @@ t_list	*create_ber_list_fd(int fd)
 		iter = new_lst;
 		line = get_next_line(fd);
 	}
+	if (errno != 0)
+		return (ft_lstclear(&root, free), NULL);
 	return (root);
 }

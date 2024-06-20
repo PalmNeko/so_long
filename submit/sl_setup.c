@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_setup.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 03:50:37 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 02:56:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	sl_setup(t_mxw *mxw, t_sl_this *sl)
 	sl->block_width = BLOCK_TILE_WIDTH;
 	sl->game_tick_reset_time = MAX_GAME_TICK;
 	if (sl_load(sl) != 0)
-		return (-1);
+		return (sl_unload(sl), -1);
 	sl->max_item_count = sl_count_block(sl->map, ITEM);
 	sl_teleport_player(
 		sl, sl->player,

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mxw_new_mxw.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:58:31 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 23:18:15 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 02:16:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ t_mxw	*mxw_new_mxw(void)
 	if (mxw == NULL)
 		return (NULL);
 	mxw->mlx = mlx_init();
+	if (mxw->mlx == NULL)
+		return (free(mxw), NULL);
 	mxw->window_list = NULL;
 	mxw->loop = NULL;
 	mxw->loop_args = NULL;

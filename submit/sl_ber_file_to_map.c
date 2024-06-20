@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sl_ber_file_to_map.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:13:43 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 13:33:15 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 03:00:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdlib.h>
 #include "sl.h"
 
 /**
@@ -30,6 +31,6 @@ t_sl_map	*sl_ber_file_to_map(char *ber_filename)
 		return (NULL);
 	sl_map = sl_ber_fd_to_map(fd);
 	if (close(fd) == -1)
-		return (NULL);
+		return (sl_destroy_map(sl_map), NULL);
 	return (sl_map);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mxw_destroy_mxw.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:50:10 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/08 13:00:05 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 02:45:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 void	mxw_destroy_mxw(t_mxw *mxw)
 {
 	mxw_int_clean_windows(mxw);
+	free(mxw->mlx);
 	free(mxw);
 	return ;
 }

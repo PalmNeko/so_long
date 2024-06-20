@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mxw_new_spritesheet.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 10:27:10 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/07 15:39:37 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 01:07:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ t_mxw_spritesheet	*mxw_new_spritesheet(
 	if (sprite_sheet == NULL)
 		return (NULL);
 	sprite_sheet->sprite_sheet = mxw_clone_image(mxw, spritesheet);
+	if (sprite_sheet->sprite_sheet == NULL)
+		return (free(sprite_sheet), NULL);
 	sprite_sheet->image_width = img_width;
 	sprite_sheet->image_height = img_height;
 	return (sprite_sheet);

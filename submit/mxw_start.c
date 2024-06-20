@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mxw_start.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:19:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/10 22:16:56 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 04:01:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	mxw_start(t_mxw_start_param param)
 	mxw->destroy_args = param.destroy_args;
 	mlx_loop_hook(mxw->mlx, mxw_loop, mxw);
 	mlx_loop(mxw->mlx);
+	if (err_no != 0)
+		mxw_destroy_mxw(mxw);
 	return (0);
 }
 
@@ -50,6 +52,7 @@ int	mxw_loop(t_mxw *mxw)
 {
 	if (mxw->is_exit == true)
 	{
+		mxw_int_clean_windows(mxw);
 		mxw_destroy_mxw(mxw);
 		exit(0);
 	}
@@ -58,7 +61,6 @@ int	mxw_loop(t_mxw *mxw)
 	else
 	{
 		mxw->destroy(mxw->destroy_args);
-		mxw_int_clean_windows(mxw);
 		mxw->is_exit = true;
 	}
 	if (mxw->window_list == NULL)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_loop.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:13:50 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/19 16:54:00 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 00:27:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ int	sl_loop(t_mxw *mxw, t_sl_this *sl)
 	mxw_flip_screen(sl->so_long_window);
 	put_move_count_text(sl);
 	if (is_gameend(sl))
-		mxw_set_end(mxw);
+	mxw_set_end(mxw);
 	return (0);
 }

@@ -57,6 +57,7 @@ static int	sl_load_image_item(t_sl_this *sl)
 			sl->img_item->width * IMAGE_SCALE,
 			sl->img_item->height * IMAGE_SCALE);
 	mxw_destroy_image(sl->img_item);
+	sl->img_item = NULL;
 	if (tmp == NULL)
 		return (-1);
 	sl->img_item = tmp;
