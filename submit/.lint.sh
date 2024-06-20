@@ -12,12 +12,12 @@ norm_format () {
     done
 }
 
-FILES=$(find . \( -name "*.h" -o -name "*.c" \) -not -path "*libft*" -not -path "*minilibx*" )
+FILES=$(find . \( -name "*.h" -o -name "*.c" \) -not -path "*libft*" -not -path "*minilibx*" -not -path "*cident*")
 
 for file in ${FILES}; do
     RESULT="$(norminette $file | grep -v "OK")";
     if [ -n "$RESULT" ] ; then
         norm_format "$RESULT"
-        break 
+        break
     fi
 done
