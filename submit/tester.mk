@@ -7,7 +7,7 @@ DEPS 	    = $(OBJS:.o=.d)
 LIBFT		= libft
 CIDENT		= cident
 CFLAGS      = -Wall -Wextra -Werror -MMD -MP -I libft -Icident -I.test -O3 -g -O0 -fsanitize=leak
-LDFLAGS		= -L libft -L minilibx -L cident
+LDFLAGS		= -fsanitize=leak -L libft -L minilibx -L cident
 LDFLAGS		+= \
 	-Xlinker --wrap=read \
 	-Xlinker --wrap=open \

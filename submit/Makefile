@@ -1,7 +1,7 @@
 
 NAME        = so_long
 SRCDIR      = .
-SRCS        = $(shell find $(SRCDIR) -name "*.c" -type f -not -path "*/libft/*.c" -not -path "*/minilibx/*.c" -not -path "*/cident/*" | xargs)
+SRCS        = $(shell find $(SRCDIR) -name "*.c" -type f -not -path "*/libft/*.c" -not -path "*/minilibx/*.c" -not -path "*/cident/*" -not -path "*/.test/*" | xargs)
 OBJS        = $(SRCS:%.c=%.o)
 DEPENDS     = $(OBJS:.o=.d)
 LIBFT		= libft
