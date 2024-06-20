@@ -37,6 +37,7 @@ show:
 debug: CFLAGS += -g -O0 -fsanitize=leak
 debug: re
 
+
 .PHONY: all
 
 ### installing
@@ -59,6 +60,9 @@ minilibx:
 bonus: CFLAGS += -D BONUS
 bonus: $(LIBFT) $(OBJS)
 	$(LINK.o) $(OBJS) $(LOADLIBES) $(LDLIBS) -o $@
+
+so_long_test:
+	make -f tester.mk
 
 -include .development.mk
 -include $(DEPENDS)
