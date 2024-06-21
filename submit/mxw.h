@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/21 20:57:29 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 23:34:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ void				mxw_set_end(t_mxw *mxw);
 /**
  * t_mxw
  */
-t_mxw				*mxw_new_mxw(void);
+t_mxw				*mxw_new_mxw(
+						int (*lf)(),
+						void *larg,
+						int (*df)(),
+						void *darg);
 void				mxw_destroy_mxw(t_mxw *mxw);
 
 /**
