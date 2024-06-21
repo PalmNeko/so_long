@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_ber_to_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:35:41 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/19 16:43:03 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 21:03:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ t_sl_map	*sl_ber_to_map(char **ber_data)
 	map->width = width;
 	if (sl_set_ber_fields(ber_data, map) != 0)
 		return (sl_destroy_map(map), NULL);
-	map->player_point = sl_get_char_point(ber_data, PLAYER_CHARACTER);
-	map->goal_point = sl_get_char_point(ber_data, GOAL_CHARACTER);
+	map->player_point = sl_get_char_point(ber_data, 'P');
+	map->goal_point = sl_get_char_point(ber_data, 'E');
 	return (map);
 }
 

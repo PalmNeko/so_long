@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 18:40:29 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/21 21:00:43 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 21:04:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # define IMAGE_SCALE 2
 # define MAX_GAME_TICK 1000000
 # define WINDOW_TITLE "solong"
-# define PLAYER_CHARACTER 'P'
-# define GOAL_CHARACTER 'E'
 
 # ifdef BONUS
 # else
