@@ -6,11 +6,10 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 23:01:41 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/21 04:07:26 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 20:55:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "sl.h"
 
 int	sl_destroy(t_sl_this *sl)

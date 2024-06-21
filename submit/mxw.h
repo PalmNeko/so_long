@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/21 18:39:00 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 20:57:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int					mxw_put_image_to_image(
 void				mxw_pixel_put_to_image(
 						t_mxw_image *data, int x, int y, int color);
 int					mxw_pixel_get_from_image(t_mxw_image *data, int x, int y);
-int					mxw_print_image(t_mxw_image *image);
 t_mxw_image			*mxw_clone_image(t_mxw *mxw, t_mxw_image *image);
 t_mxw_image			*mxw_resize_image(
 						t_mxw *mxw,

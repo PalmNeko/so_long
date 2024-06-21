@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/21 02:16:44 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 20:57:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "mxw.h"
 #include "sl.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <unistd.h>
 
 int	main(int argc, char *argv[])

@@ -6,14 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:58:15 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/21 03:42:46 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 20:57:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <mlx.h>
 #include <errno.h>
-#include <stdio.h>
 #include <string.h>
 #include "mxw_int.h"
 

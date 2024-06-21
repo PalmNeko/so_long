@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   sl_keyboard_handler.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 18:15:04 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 04:30:48 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 20:55:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sl.h"
 #include "mxw.h"
-#include <stdio.h>
 #include <stdbool.h>
 #include <limits.h>
 #include <X11/Xutil.h>
