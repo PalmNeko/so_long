@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:19:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/22 00:14:03 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/22 00:16:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	mxw_start(t_mxw_start_param param)
 
 int	mxw_loop(t_mxw *mxw)
 {
-	else if (mxw->is_end == true)
+	if (mxw->is_end == true)
 		mxw_exit(mxw);
 	else if (mxw->loop != NULL)
 		mxw->loop(mxw, mxw->loop_args);
