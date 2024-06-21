@@ -22,6 +22,6 @@ for i in $TIMES; do
 		exit 1
 	else
 		echo "error: $i"
-		echo "$RESULT"
+		test -n "$RESULT" && echo "$RESULT" && exit
 	fi
 done
