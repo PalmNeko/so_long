@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:11:11 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/21 16:35:23 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 23:44:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int	add_events(t_mxw_window *window)
 		mxw_int_destroy_handler, window);
 	mlx_hook(window->mlx_win, Expose, 0,
 		mxw_int_expose_handler, window);
-	mlx_hook(window->mlx_win, KeyPress, KeyPressMask ,
+	mlx_hook(window->mlx_win, KeyPress, KeyPressMask,
 		mxw_int_keydown_handler, window);
 	mlx_hook(window->mlx_win, KeyRelease, KeyReleaseMask,
 		mxw_int_keyup_handler, window);

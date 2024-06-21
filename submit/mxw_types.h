@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/21 18:48:10 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 23:43:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include <X11/X.h>
 
 # define MXW_EVENT_HANDLER 32
-# define MAX_EVENT_CNT LASTEvent
+// 36 because LASTEvent(ref. X11/X.h). for fuckin' norminette.
+# define MAX_EVENT_CNT 36
 
 typedef struct s_mxw				t_mxw;
 typedef struct s_mxw_image			t_mxw_image;
