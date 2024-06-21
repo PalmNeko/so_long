@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   mxw_new_window.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 17:11:11 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/10 16:36:39 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 16:35:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include <stdlib.h>
+#include <X11/X.h>
 #include "mxw.h"
 #include "mxw_int.h"
 #include "libft.h"
@@ -72,19 +73,19 @@ static int	_add_window_list(t_mxw *mxw, t_mxw_window *window)
 
 static int	add_events(t_mxw_window *window)
 {
-	mlx_hook(window->mlx_win, 17, 1,
+	mlx_hook(window->mlx_win, DestroyNotify, 0,
 		mxw_int_destroy_handler, window);
-	mlx_hook(window->mlx_win, 12, 1,
+	mlx_hook(window->mlx_win, Expose, 0,
 		mxw_int_expose_handler, window);
-	mlx_hook(window->mlx_win, 2, 1,
+	mlx_hook(window->mlx_win, KeyPress, KeyPressMask ,
 		mxw_int_keydown_handler, window);
-	mlx_hook(window->mlx_win, 3, 1,
+	mlx_hook(window->mlx_win, KeyRelease, KeyReleaseMask,
 		mxw_int_keyup_handler, window);
-	mlx_hook(window->mlx_win, 4, 1,
+	mlx_hook(window->mlx_win, ButtonPress, ButtonPressMask,
 		mxw_int_mousedown_handler, window);
-	mlx_hook(window->mlx_win, 5, 1,
+	mlx_hook(window->mlx_win, ButtonRelease, ButtonReleaseMask,
 		mxw_int_mouseup_handler, window);
-	mlx_hook(window->mlx_win, 6, 1,
+	mlx_hook(window->mlx_win, MotionNotify, PointerMotionMask,
 		mxw_int_mousemove_handler, window);
 	return (0);
 }
