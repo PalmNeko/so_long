@@ -6,12 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:57:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/21 02:56:25 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 18:44:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include <stdio.h>
+#include <X11/X.h>
 #include "mxw.h"
 #include "sl.h"
 
@@ -48,8 +49,8 @@ int	sl_setup(t_mxw *mxw, t_sl_this *sl)
 	sl->so_long_window = so_long_window;
 	sl_draw_image(sl);
 	mxw_flip_screen(so_long_window);
-	mxw_add_event(so_long_window, ON_DESTROY, _destroy, sl);
-	mxw_add_event(so_long_window, ON_KEYDOWN, sl_keyboard_handler, sl);
+	mxw_add_event(so_long_window, DestroyNotify, _destroy, sl);
+	mxw_add_event(so_long_window, KeyPress, sl_keyboard_handler, sl);
 	return (0);
 }
 

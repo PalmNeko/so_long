@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mxw.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:16:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/19 16:25:45 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 18:39:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int					mxw_put_image_to_window(
 int					mxw_flip_screen(t_mxw_window *window);
 int					mxw_add_event(
 						t_mxw_window *window,
-						t_mxw_event mxw_event,
+						int mxw_event,
 						int (*funct)(),
 						void *param);
 

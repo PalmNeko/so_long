@@ -6,18 +6,20 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/21 15:19:21 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 18:48:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MXW_TYPES_H
 # define MXW_TYPES_H
 
-# define MXW_EVENT_HANDLER 32
-# define MAX_EVENT_CNT 7
 # include "libft.h"
 # include "mxw_int_types.h"
 # include <stdbool.h>
+# include <X11/X.h>
+
+# define MXW_EVENT_HANDLER 32
+# define MAX_EVENT_CNT LASTEvent
 
 typedef struct s_mxw				t_mxw;
 typedef struct s_mxw_image			t_mxw_image;
@@ -93,15 +95,5 @@ struct s_mxw_body {
 	int				x;
 	int				y;
 };
-
-typedef enum e_mxw_event {
-	ON_KEYDOWN = 0,
-	ON_KEYUP = 1,
-	ON_MOUSEDOWN = 2,
-	ON_MOUSEUP = 3,
-	ON_MOUSEMOVE = 4,
-	ON_EXPOSE = 5,
-	ON_DESTROY = MAX_EVENT_CNT - 1,
-}	t_mxw_event;
 
 #endif

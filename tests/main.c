@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 15:15:51 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/08 16:42:23 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 18:44:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mxw.h"
 #include "mxw_test.h"
+#include <X11/X.h>
 
 extern char *test_case_name;
 
@@ -35,8 +36,8 @@ int test_setup(t_mxw *mxw, t_test_this	*this)
 	this->extend_args = NULL;
 	this->win = mxw_new_window(mxw, 1920, 1080, test_case_name);
 	inner_test_setup(this);
-	mxw_add_event(this->win, ON_DESTROY, test_window_destroy, this);
-	mxw_add_event(this->win, ON_KEYDOWN, keyboard_handler, this);
+	mxw_add_event(this->win, DestroyNotify, test_window_destroy, this);
+	mxw_add_event(this->win, KeyPress, keyboard_handler, this);
 	return (0);
 }
 
