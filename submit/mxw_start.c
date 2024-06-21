@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:19:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/22 00:10:14 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/22 00:14:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,17 @@ int	mxw_start(t_mxw_start_param param)
 	mxw = mxw_new_mxw(
 			param.loop, param.loop_args, param.destroy, param.destroy_args);
 	if (mxw == NULL)
-		return (param.destroy(param.destroy_args), 1);
-	err_no = ((int (*)(t_mxw *, void *))param.setup)(mxw, param.setup_args);
-	if (err_no != 0)
-		return (mxw_destroy_mxw(mxw), 1);
+	{
+		if (param.destroy != NULL)
+			param.destroy(param.destroy_args);
+		return (1);
+	}
+	if (param.setup != NULL)
+	{
+		err_no = ((int (*)(t_mxw *, void *))param.setup)(mxw, param.setup_args);
+		if (err_no != 0)
+			return (mxw_destroy_mxw(mxw), 1);
+	}
 	mlx_loop_hook(mxw->mlx, mxw_loop, mxw);
 	mlx_loop(mxw->mlx);
 	return (0);
@@ -50,7 +57,7 @@ int	mxw_loop(t_mxw *mxw)
 {
 	else if (mxw->is_end == true)
 		mxw_exit(mxw);
-	else
+	else if (mxw->loop != NULL)
 		mxw->loop(mxw, mxw->loop_args);
 	mxw_update(mxw);
 	return (0);
