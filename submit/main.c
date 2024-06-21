@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 01:25:40 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/21 20:57:52 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 23:48:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int	main(int argc, char *argv[])
 		.destroy_args = &ls_this};
 	result = mxw_start(mxw_start_param);
 	if (result != 0)
-		return (0);
+		return (1);
 	return (0);
 }
