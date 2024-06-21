@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_unload.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 14:26:24 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/16 02:52:38 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/22 00:08:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ void	sl_unload(t_sl_this *sl)
 	mxw_destroy_image(sl->background);
 	mxw_destroy_image(sl->counter_header);
 	mxw_destroy_spritesheet(sl->sprite_sheet);
+	sl_init_sl_this(sl);
 }
