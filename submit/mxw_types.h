@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mxw_types.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:25:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/09 16:14:26 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:19:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,61 +103,5 @@ typedef enum e_mxw_event {
 	ON_EXPOSE = 5,
 	ON_DESTROY = MAX_EVENT_CNT - 1,
 }	t_mxw_event;
-
-enum {
-	KEY_0=29,
-	KEY_1=18,
-	KEY_2=19,
-	KEY_3=20,
-	KEY_4=21,
-	KEY_5=23,
-	KEY_6=22,
-	KEY_7=26,
-	KEY_8=28,
-	KEY_9=25,
-	KEY_A=0,
-	KEY_B=11,
-	KEY_C=8,
-	KEY_D=2,
-	KEY_E=14,
-	KEY_F=3,
-	KEY_G=5,
-	KEY_H=4,
-	KEY_I=34,
-	KEY_J=38,
-	KEY_K=40,
-	KEY_L=37,
-	KEY_M=46,
-	KEY_N=45,
-	KEY_O=31,
-	KEY_P=35,
-	KEY_Q=12,
-	KEY_R=15,
-	KEY_S=1,
-	KEY_T=17,
-	KEY_U=32,
-	KEY_V=9,
-	KEY_W=13,
-	KEY_X=7,
-	KEY_Y=16,
-	KEY_Z=6,
-	KEY_RETURN=36,
-	KEY_TAB=48,
-	KEY_LCTRL=256,
-	KEY_LCMD=259,
-	KEY_LOPT=261,
-	KEY_RCMD=260,
-	KEY_ROPT=262,
-	KEY_LEFT_ARROW=123,
-	KEY_RIGHT_ARROW=124,
-	KEY_UP_ARROW=126,
-	KEY_DOWN_ARROW=125,
-	KEY_LSHIFT=257,
-	KEY_RSHIFT=258,
-	KEY_CAPS=272,
-	KEY_FN=279,
-	KEY_BACK=51,
-	KEY_ESC=53,
-};
 
 #endif
