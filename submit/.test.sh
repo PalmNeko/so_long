@@ -19,9 +19,9 @@ for i in $TIMES; do
 	RESULT="$(./so_long_test maps/sample.ber)"
 	if [ $? -eq 0 ]; then
 		echo "done: $i"
+		exit 1
 	else
 		echo "error: $i"
 		echo "$RESULT"
-		exit 1
 	fi
 done
