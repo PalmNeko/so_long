@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:19:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/06/21 04:01:54 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/21 22:29:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 #include "mxw.h"
 #include "mxw_int.h"
 
-int	mxw_loop(t_mxw *mxw);
+int		mxw_loop(t_mxw *mxw);
+void	mxw_update(t_mxw *mxw);
+bool	is_zombie_process(t_mxw *mxw);
+void	mxw_exit(t_mxw *mxw);
 
 /**
  *
@@ -51,25 +54,43 @@ int	mxw_start(t_mxw_start_param param)
 int	mxw_loop(t_mxw *mxw)
 {
 	if (mxw->is_exit == true)
-	{
-		mxw_int_clean_windows(mxw);
-		mxw_destroy_mxw(mxw);
-		exit(0);
-	}
-	if (mxw->is_end == false)
-		mxw->loop(mxw, mxw->loop_args);
-	else
-	{
+		mxw_exit(mxw);
+	else if (mxw->is_end == true)
 		mxw->destroy(mxw->destroy_args);
+	else
+		mxw->loop(mxw, mxw->loop_args);
+	mxw_update(mxw);
+	return (0);
+}
+
+void	mxw_exit(t_mxw *mxw)
+{
+	mxw_int_clean_windows(mxw);
+	mxw_destroy_mxw(mxw);
+	exit(0);
+}
+
+void	mxw_update(t_mxw *mxw)
+{
+	if (mxw->window_list == NULL)
+		mxw->idle_cnt += 1;
+	else
+		mxw->idle_cnt = 0;
+	if (mxw->is_end == true)
 		mxw->is_exit = true;
-	}
+	if (is_zombie_process(mxw) == true)
+		mxw->is_end = true;
+}
+
+bool	is_zombie_process(t_mxw *mxw)
+{
 	if (mxw->window_list == NULL)
 	{
 		mxw->idle_cnt += 1;
 		if (mxw->idle_cnt > AUTO_CLOSE_TICK)
-			mxw->is_end = true;
+			return (true);
 	}
 	else
 		mxw->idle_cnt = 0;
-	return (0);
+	return (false);
 }
